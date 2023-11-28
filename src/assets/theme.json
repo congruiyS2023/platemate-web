@@ -1,0 +1,29 @@
+{
+  "token": {
+    "colorPrimary": "#12664f",
+    "colorInfo": "#12664f",
+    "colorSuccess": "#307473",
+    "colorWarning": "#ae8e1c",
+    "colorError": "#af3800",
+    "wireframe": false,
+    "colorBgBase": "#ffffff",
+    "colorTextBase": "#222725",
+    "fontSizeHeading1": 24,
+    "fontSizeHeading2": 18
+  },
+  "components": {
+    "Button": {
+      "algorithm": true,
+      "fontWeight": 600,
+      "contentFontSize": 16,
+      "contentFontSizeLG": 21
+    },
+    "DatePicker": {
+      "colorBorder": "rgb(18, 102, 79)",
+      "colorErrorOutline": "rgba(18, 102, 79, 0.15)"
+    },
+    "Modal": {
+      "titleColor": "#12664f"
+    }
+  }
+}
