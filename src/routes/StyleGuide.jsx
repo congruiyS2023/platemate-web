@@ -1,4 +1,4 @@
-import { DatePicker, Divider, Flex, Modal } from "antd";
+import { DatePicker, Divider, Flex, Modal, Input, Space } from "antd";
 import { useState } from "react";
 import ButtonText from "../components/ButtonText";
 import Caption from "../components/Caption";
@@ -7,6 +7,8 @@ import Heading from "../components/Heading";
 import InputText from "../components/InputText";
 import Link from "../components/Link";
 import Paragraph from "../components/Paragraph";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { SendOutlined } from "@ant-design/icons";
 
 const StyleGuide = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,11 +25,18 @@ const StyleGuide = () => {
     setIsModalOpen(false);
   };
 
+  const onChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    console.log(e);
+  };
+
   return (
     <>
       <div className="pt-4">
         <Heading level={1}>PlateMate Style Guide</Heading>
       </div>
+
       <Divider />
 
       <Flex justify="flex-start" className="px-12">
@@ -67,6 +76,7 @@ const StyleGuide = () => {
           <Caption>16 px Barlow Semibold 600</Caption>
         </Flex>
       </Flex>
+
       <Divider />
 
       <Flex justify="flex-start" className="px-12">
@@ -83,6 +93,7 @@ const StyleGuide = () => {
         <CustomButton size="large">Large Button</CustomButton>
         <CustomButton size="small">Small Button</CustomButton>
       </Flex>
+
       <Divider />
 
       <Flex justify="flex-start" className="px-12">
@@ -91,6 +102,7 @@ const StyleGuide = () => {
       <Flex justify="flex-start" className="px-12">
         <DatePicker />
       </Flex>
+
       <Divider />
 
       <Flex justify="flex-start" className="px-12">
@@ -117,6 +129,55 @@ const StyleGuide = () => {
           </Paragraph>
         </Modal>
       </Flex>
+
+      <Divider />
+
+      <Flex justify="flex-start" className="px-12">
+        <Heading level={2}>Input</Heading>
+      </Flex>
+
+      <Flex vertical justify="flex-start" gap="middle" className="px-12">
+        <Input
+          placeholder="Basic Input"
+          allowClear
+          onChange={onChange}
+          style={{ width: 300 }}
+        />
+        <Flex vertical justify="flex-start" style={{ width: 300 }}>
+          <label style={{ width: "fit-content" }}> Input with label </label>
+          <Input
+            style={{ marginTop: "5px" }}
+            placeholder="Input with label"
+            allowClear
+            onChange={onChange}
+          />
+        </Flex>
+
+        <Input.Password
+          placeholder="input password"
+          iconRender={(visible) =>
+            visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+          }
+          style={{ width: 300 }}
+        />
+
+        <Space.Compact style={{ width: 300 }}>
+          <Input placeholder="Message..." />
+          <CustomButton disabled>
+            <SendOutlined />
+          </CustomButton>
+        </Space.Compact>
+
+        <Space.Compact style={{ width: 300 }}>
+          <Input defaultValue="Combine input and button" />
+          <CustomButton type="primary">
+            <SendOutlined />
+          </CustomButton>
+        </Space.Compact>
+      </Flex>
+
+      <br />
+      <br />
     </>
   );
 };
