@@ -1,14 +1,20 @@
-import { DatePicker, Divider, Flex, Modal, Input, Space } from "antd";
+import { DatePicker, Divider, Flex, Modal, Select } from "antd";
 import { useState } from "react";
 import ButtonText from "../components/ButtonText";
 import Caption from "../components/Caption";
 import CustomButton from "../components/CustomButton";
+import {
+  CustomInput,
+  CustomInputWithPassword,
+  CustomInputWithLabel,
+  CustomInputWithSubmit,
+} from "../components/CustomInputs";
+import { CustomCheckbox } from "../components/CustomCheckbox";
 import Heading from "../components/Heading";
 import InputText from "../components/InputText";
 import Link from "../components/Link";
 import Paragraph from "../components/Paragraph";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
-import { SendOutlined } from "@ant-design/icons";
 
 const StyleGuide = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,9 +42,7 @@ const StyleGuide = () => {
       <div className="pt-4">
         <Heading level={1}>PlateMate Style Guide</Heading>
       </div>
-
       <Divider />
-
       <Flex justify="flex-start" className="px-12">
         <Heading level={2}>Typography</Heading>
       </Flex>
@@ -76,9 +80,7 @@ const StyleGuide = () => {
           <Caption>16 px Barlow Semibold 600</Caption>
         </Flex>
       </Flex>
-
       <Divider />
-
       <Flex justify="flex-start" className="px-12">
         <Heading level={2}>Buttons</Heading>
       </Flex>
@@ -93,18 +95,14 @@ const StyleGuide = () => {
         <CustomButton size="large">Large Button</CustomButton>
         <CustomButton size="small">Small Button</CustomButton>
       </Flex>
-
       <Divider />
-
       <Flex justify="flex-start" className="px-12">
         <Heading level={2}>DatePicker</Heading>
       </Flex>
       <Flex justify="flex-start" className="px-12">
         <DatePicker />
       </Flex>
-
       <Divider />
-
       <Flex justify="flex-start" className="px-12">
         <Heading level={2}>Modal</Heading>
       </Flex>
@@ -135,45 +133,59 @@ const StyleGuide = () => {
       <Flex justify="flex-start" className="px-12">
         <Heading level={2}>Input</Heading>
       </Flex>
-
       <Flex vertical justify="flex-start" gap="middle" className="px-12">
-        <Input
+        <CustomInput
+          className="w-80"
           placeholder="Basic Input"
           allowClear
           onChange={onChange}
-          style={{ width: 300 }}
         />
-        <Flex vertical justify="flex-start" style={{ width: 300 }}>
-          <label style={{ width: "fit-content" }}> Input with label </label>
-          <Input
-            style={{ marginTop: "5px" }}
-            placeholder="Input with label"
-            allowClear
-            onChange={onChange}
-          />
-        </Flex>
 
-        <Input.Password
+        <CustomInputWithLabel
+          className="w-80"
+          content="Input with label"
+          placeholder="Input with label"
+        />
+
+        <CustomInputWithPassword
+          className="w-80"
           placeholder="input password"
           iconRender={(visible) =>
             visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
           }
-          style={{ width: 300 }}
         />
 
-        <Space.Compact style={{ width: 300 }}>
-          <Input placeholder="Message..." />
-          <CustomButton disabled>
-            <SendOutlined />
-          </CustomButton>
-        </Space.Compact>
+        <CustomInputWithSubmit
+          className="w-80"
+          placeholder="Custom input with submit button"
+        />
+      </Flex>
+      <Divider />
+      <Flex justify="flex-start" className="px-12">
+        <Heading level={2}>Checkbox</Heading>
+      </Flex>
+      <Flex vertical justify="flex-start" gap="middle" className="px-12">
+        <CustomCheckbox className="w-60" content="CheckBox Item" />
+      </Flex>
 
-        <Space.Compact style={{ width: 300 }}>
-          <Input defaultValue="Combine input and button" />
-          <CustomButton type="primary">
-            <SendOutlined />
-          </CustomButton>
-        </Space.Compact>
+      <Divider />
+
+      <Flex justify="flex-start" className="px-12">
+        <Heading level={2}>Select</Heading>
+      </Flex>
+
+      <Flex vertical justify="flex-start" gap="middle" className="px-12">
+        <Select
+          className="font-paragraph w-60"
+          placeholder="Select an option"
+          onChange={""}
+          options={[
+            { value: "beefRole", label: "Beef Roll" },
+            { value: "candy", label: "Candy" },
+            { value: "noodles", label: "Noodles" },
+            { value: "burger", label: "Burger", disabled: true },
+          ]}
+        />
       </Flex>
 
       <br />
