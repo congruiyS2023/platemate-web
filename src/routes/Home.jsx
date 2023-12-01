@@ -14,11 +14,8 @@ const Home = () => {
         rel="noopener noreferrer"
       >
         Learn React
-          </a>
-          <a
-        className="App-link"
-        href="/style-guide"
-      >
+      </a>
+      <a className="App-link" href="/style-guide">
         Style Guide
       </a>
     </header>
