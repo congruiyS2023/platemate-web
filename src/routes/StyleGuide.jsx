@@ -1,8 +1,15 @@
-import { DatePicker, Divider, Flex, Modal } from "antd";
+import { DatePicker, Divider, Flex, Modal, Select } from "antd";
 import { useState } from "react";
 import ButtonText from "../components/ButtonText";
 import Caption from "../components/Caption";
 import CustomButton from "../components/CustomButton";
+import {
+  CustomInput,
+  CustomInputWithPassword,
+  CustomInputWithLabel,
+  CustomInputWithSubmit,
+} from "../components/CustomInputs";
+import { CustomCheckbox } from "../components/CustomCheckbox";
 import Heading from "../components/Heading";
 import InputText from "../components/InputText";
 import Link from "../components/Link";
@@ -11,6 +18,7 @@ import CustomSlider from "../components/Slider";
 import RecycleOrderCard from "../components/RecycleOrderCard";
 import RedistributeCard from "../components/RedistributeCard";
 import RecycleOrderHistoryCard from "../components/RecycleOrderHistoryCard";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 const StyleGuide = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,6 +40,9 @@ const StyleGuide = () => {
   const incrementWeight = () => setWeight(weight + 1);
 
   const decrementWeight = () => setWeight(weight > 0 ? weight - 1 : 0);
+  const onChange = (e) => {
+    console.log(e);
+  };
 
   return (
     <>
@@ -39,7 +50,6 @@ const StyleGuide = () => {
         <Heading level={1}>PlateMate Style Guide</Heading>
       </div>
       <Divider />
-
       <Flex justify="flex-start" className="px-12">
         <Heading level={2}>Typography</Heading>
       </Flex>
@@ -78,7 +88,6 @@ const StyleGuide = () => {
         </Flex>
       </Flex>
       <Divider />
-
       <Flex justify="flex-start" className="px-12">
         <Heading level={2}>Buttons</Heading>
       </Flex>
@@ -94,7 +103,6 @@ const StyleGuide = () => {
         <CustomButton size="small">Small Button</CustomButton>
       </Flex>
       <Divider />
-
       <Flex justify="flex-start" className="px-12">
         <Heading level={2}>DatePicker</Heading>
       </Flex>
@@ -102,7 +110,6 @@ const StyleGuide = () => {
         <DatePicker />
       </Flex>
       <Divider />
-
       <Flex justify="flex-start" className="px-12">
         <Heading level={2}>Modal</Heading>
       </Flex>
@@ -155,6 +162,69 @@ const StyleGuide = () => {
           <RecycleOrderHistoryCard />
         </Flex>
       </Flex>
+
+      <Divider />
+
+      <Flex justify="flex-start" className="px-12">
+        <Heading level={2}>Input</Heading>
+      </Flex>
+      <Flex vertical justify="flex-start" gap="middle" className="px-12">
+        <CustomInput
+          className="w-80"
+          placeholder="Basic Input"
+          allowClear
+          onChange={onChange}
+        />
+
+        <CustomInputWithLabel
+          className="w-80"
+          content="Input with label"
+          placeholder="Input with label"
+        />
+
+        <CustomInputWithPassword
+          className="w-80"
+          placeholder="input password"
+          iconRender={(visible) =>
+            visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+          }
+        />
+
+        <CustomInputWithSubmit
+          className="w-80"
+          placeholder="Custom input with submit button"
+        />
+      </Flex>
+      <Divider />
+      <Flex justify="flex-start" className="px-12">
+        <Heading level={2}>Checkbox</Heading>
+      </Flex>
+      <Flex vertical justify="flex-start" gap="middle" className="px-12">
+        <CustomCheckbox className="w-60" content="CheckBox Item" />
+      </Flex>
+
+      <Divider />
+
+      <Flex justify="flex-start" className="px-12">
+        <Heading level={2}>Select</Heading>
+      </Flex>
+
+      <Flex vertical justify="flex-start" gap="middle" className="px-12">
+        <Select
+          className="font-paragraph w-60"
+          placeholder="Select an option"
+          onChange={""}
+          options={[
+            { value: "beefRole", label: "Beef Roll" },
+            { value: "candy", label: "Candy" },
+            { value: "noodles", label: "Noodles" },
+            { value: "burger", label: "Burger", disabled: true },
+          ]}
+        />
+      </Flex>
+
+      <br />
+      <br />
     </>
   );
 };
