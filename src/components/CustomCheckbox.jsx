@@ -3,7 +3,6 @@ import Caption from "../components/Caption";
 
 export const CustomCheckbox = ({ className, onChange, content, ...props }) => {
   const handleChange = (e) => {
-    console.log(`checked = ${e.target.checked}`);
     if (onChange) {
       onChange(e);
     }
