@@ -7,9 +7,15 @@ import Heading from "../components/Heading";
 import InputText from "../components/InputText";
 import Link from "../components/Link";
 import Paragraph from "../components/Paragraph";
+import CustomSlider from "../components/Slider";
+import RecycleOrderCard from "../components/RecycleOrderCard";
+import RedistributeCard from "../components/RedistributeCard";
+import RecycleOrderHistoryCard from "../components/RecycleOrderHistoryCard";
 
 const StyleGuide = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [weight, setWeight] = useState(5);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -22,6 +28,10 @@ const StyleGuide = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  const incrementWeight = () => setWeight(weight + 1);
+
+  const decrementWeight = () => setWeight(weight > 0 ? weight - 1 : 0);
 
   return (
     <>
@@ -116,6 +126,34 @@ const StyleGuide = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Paragraph>
         </Modal>
+      </Flex>
+      <Divider />
+
+      <Flex justify="flex-start" className="px-12">
+        <Heading level={2}>Slider</Heading>
+      </Flex>
+      <div className="px-12 w-10/12">
+        <CustomSlider />
+      </div>
+      <Divider />
+
+      <Flex justify="flex-start" className="px-12">
+        <Heading level={2}>Card</Heading>
+      </Flex>
+      <Flex justify="flex-start" className="px-12" vertical>
+        <Flex className="mb-4">
+          <RecycleOrderCard />
+        </Flex>
+        <Flex className="mb-4">
+          <RedistributeCard
+            weight={weight}
+            onIncrement={incrementWeight}
+            onDecrement={decrementWeight}
+          />
+        </Flex>
+        <Flex className="mb-4">
+          <RecycleOrderHistoryCard />
+        </Flex>
       </Flex>
     </>
   );
