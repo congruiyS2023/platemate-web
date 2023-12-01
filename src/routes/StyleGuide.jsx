@@ -31,12 +31,6 @@ const StyleGuide = () => {
     setIsModalOpen(false);
   };
 
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    console.log(e);
-  };
-
   return (
     <>
       <div className="pt-4">
@@ -138,7 +132,7 @@ const StyleGuide = () => {
           className="w-80"
           placeholder="Basic Input"
           allowClear
-          onChange={onChange}
+          onChange={""}
         />
 
         <CustomInputWithLabel
@@ -176,7 +170,7 @@ const StyleGuide = () => {
 
       <Flex vertical justify="flex-start" gap="middle" className="px-12">
         <Select
-          className="font-paragraph w-60"
+          className="font-paragraph w-60 text-left"
           placeholder="Select an option"
           onChange={""}
           options={[
