@@ -132,7 +132,6 @@ const StyleGuide = () => {
           className="w-80"
           placeholder="Basic Input"
           allowClear
-          onChange={""}
         />
 
         <CustomInputWithLabel
@@ -181,9 +180,6 @@ const StyleGuide = () => {
           ]}
         />
       </Flex>
-
-      <br />
-      <br />
     </>
   );
 };
