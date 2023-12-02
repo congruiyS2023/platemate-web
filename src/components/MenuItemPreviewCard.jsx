@@ -19,7 +19,7 @@ const MenuItemPreviewCard = ({ onClickMenuItem, ...props }) => (
                 <span className="text-primary font-heading"> {props.name} </span>
             </div>
             <div>
-                <span className="text-primary font-normal"> {props.price} </span>
+                <span className="text-primary font-paragraph"> {props.price} </span>
             </div>
         </div>
     </Card>

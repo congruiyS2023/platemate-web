@@ -14,7 +14,7 @@ const MenuItemDetailCard = ({ ...props }) => (
         <div className="flex flex-col">
             <div>
                 <span className="text-primary font-heading"> {props.name} </span>
-                <p className="text-xs text-black font-normal"> {props.description} </p>
+                <p className="text-xs text-black font-paragraph"> {props.description} </p>
             </div>
         </div>
     </Card>
