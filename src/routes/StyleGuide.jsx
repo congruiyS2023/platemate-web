@@ -19,6 +19,9 @@ import RecycleOrderCard from "../components/RecycleOrderCard";
 import RedistributeCard from "../components/RedistributeCard";
 import RecycleOrderHistoryCard from "../components/RecycleOrderHistoryCard";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import OrderItemCard from "../components/OrderItemCard";
+import MenuItemDetailCard from "../components/MenuItemDetailCard";
+import MenuItemPreviewCard from "../components/MenuItemPreviewCard";
 
 const StyleGuide = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -161,6 +164,15 @@ const StyleGuide = () => {
         <Flex className="mb-4">
           <RecycleOrderHistoryCard />
         </Flex>
+          <Flex className="mb-4">
+              <MenuItemPreviewCard name={"HASS OMELETE"} price={"$22"} image={"https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"}/>
+          </Flex>
+          <Flex className="mb-4">
+              <OrderItemCard name={"HASS OMELETE"} description={"Bacon, avacado, monterey jack, pico de gallo, mild cheddar"} count={2} image={"https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"}/>
+          </Flex>
+          <Flex className="mb-4">
+              <MenuItemDetailCard name={"HASS OMELETE"} description={"Bacon, avacado, monterey jack, pico de gallo, mild cheddar"} image={"https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"}/>
+          </Flex>
       </Flex>
 
       <Divider />
