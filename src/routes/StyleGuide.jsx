@@ -159,20 +159,53 @@ const StyleGuide = () => {
             weight={weight}
             onIncrement={incrementWeight}
             onDecrement={decrementWeight}
+            name={"Pumpkin Pie"}
+            description={"Pumpkin, sugar, butter"}
+            time={"11/20/2023"}
+            status={"Untouched"}
           />
         </Flex>
         <Flex className="mb-4">
-          <RecycleOrderHistoryCard />
+          <RecycleOrderHistoryCard
+            name={"Recycle Order 1"}
+            weight={"5"}
+            type={"Partial Solid"}
+            company={"RecycleHero"}
+            time={"11/12/2023 21:00"}
+          />
         </Flex>
-          <Flex className="mb-4">
-              <MenuItemPreviewCard name={"HASS OMELETE"} price={"$22"} image={"https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"}/>
-          </Flex>
-          <Flex className="mb-4">
-              <OrderItemCard name={"HASS OMELETE"} description={"Bacon, avacado, monterey jack, pico de gallo, mild cheddar"} count={2} image={"https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"}/>
-          </Flex>
-          <Flex className="mb-4">
-              <MenuItemDetailCard name={"HASS OMELETE"} description={"Bacon, avacado, monterey jack, pico de gallo, mild cheddar"} image={"https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"}/>
-          </Flex>
+        <Flex className="mb-4">
+          <MenuItemPreviewCard
+            name={"HASS OMELETE"}
+            price={"$22"}
+            image={
+              "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"
+            }
+          />
+        </Flex>
+        <Flex className="mb-4">
+          <OrderItemCard
+            name={"HASS OMELETE"}
+            description={
+              "Bacon, avacado, monterey jack, pico de gallo, mild cheddar"
+            }
+            count={2}
+            image={
+              "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"
+            }
+          />
+        </Flex>
+        <Flex className="mb-4">
+          <MenuItemDetailCard
+            name={"HASS OMELETE"}
+            description={
+              "Bacon, avacado, monterey jack, pico de gallo, mild cheddar"
+            }
+            image={
+              "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"
+            }
+          />
+        </Flex>
       </Flex>
 
       <Divider />

@@ -12,12 +12,18 @@ const RedistributeCard = ({ weight, onIncrement, onDecrement, ...props }) => (
     </div>
     <div className="flex flex-col w-64 mt-2">
       <div className="mx-3">
-        <span className="text-primary font-bold text-lg font-heading">Pumpkin Pie</span>
+        <span className="text-primary font-bold text-lg font-heading">
+          {props.name}
+        </span>
         <p className="text-xs text-black text-primary font-paragraph">
-          Pumpkin, suger, butter
+          {props.description}
         </p>
-        <p className="text-xs text-black font-paragraph">Untouched</p>
-        <p className="text-xs text-black font-paragraph">Pick up by 11/5/2023</p>
+        <p className="text-xs text-black font-paragraph">
+          Status: {props.status}
+        </p>
+        <p className="text-xs text-black font-paragraph">
+          Pick up by {props.time}
+        </p>
         <p className="text-xs text-black text-primary">
           <span className="font-bold font-paragraph">{weight}</span>
           <span className="text-xs text-black ml-1 font-paragraph">lb</span>
