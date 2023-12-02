@@ -185,7 +185,6 @@ const StyleGuide = () => {
           className="w-80"
           placeholder="Basic Input"
           allowClear
-          onChange={onChange}
         />
 
         <CustomInputWithLabel
@@ -223,7 +222,7 @@ const StyleGuide = () => {
 
       <Flex vertical justify="flex-start" gap="middle" className="px-12">
         <Select
-          className="font-paragraph w-60"
+          className="font-paragraph w-60 text-left"
           placeholder="Select an option"
           onChange={""}
           options={[
@@ -234,9 +233,6 @@ const StyleGuide = () => {
           ]}
         />
       </Flex>
-
-      <br />
-      <br />
     </>
   );
 };
