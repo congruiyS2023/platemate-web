@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Heading from "../components/Heading";
 import ChatMessage from "../components/ChatMessage";
-import { Flex, Input } from "antd";
-import { AiOutlineSend } from "react-icons/ai";
+import { Flex } from "antd";
+import { CustomInputWithSubmit } from "../components/CustomInputs";
 
 function getMessages(name) {
     return [
@@ -24,22 +24,21 @@ export default function Chat() {
     const name = queryParams.get("name");
 
     const [messages, setMessages] = useState([]);
-    const [newMessage, setNewMessage] = useState("");
 
     useEffect(() => {
         setMessages(getMessages(name));
     }, [setMessages, name]);
 
-    const handleSendMessage = () => {
-        if (newMessage.trim() !== "") {
+    const handleSendMessage = (msg) => {
+        console.log(msg);
+        if (msg !== "") {
             setMessages((prevMessages) => [
                 ...prevMessages,
                 {
-                    msg: newMessage,
+                    msg: msg,
                     isSender: true,
                 },
             ]);
-            setNewMessage("");
         }
     };
 
@@ -54,13 +53,10 @@ export default function Chat() {
                     isSender={message.isSender}
                 ></ChatMessage>
             ))}
-            <Input
+            <CustomInputWithSubmit
                 className="mt-auto"
                 placeholder="Message..."
-                suffix={<AiOutlineSend />}
-                value={newMessage}
-                onChange={(e) => setNewMessage(e.target.value)}
-                onPressEnter={handleSendMessage}
+                onSubmit={handleSendMessage}
             />
         </Flex>
     );
