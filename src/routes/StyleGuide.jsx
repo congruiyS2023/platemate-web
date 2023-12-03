@@ -14,7 +14,7 @@ import Heading from "../components/Heading";
 import InputText from "../components/InputText";
 import Link from "../components/Link";
 import Paragraph from "../components/Paragraph";
-import CustomSlider from "../components/Slider";
+import { Slider } from "antd";
 import RecycleOrderCard from "../components/RecycleOrderCard";
 import RedistributeCard from "../components/RedistributeCard";
 import RecycleOrderHistoryCard from "../components/RecycleOrderHistoryCard";
@@ -43,8 +43,10 @@ const StyleGuide = () => {
   const incrementWeight = () => setWeight(weight + 1);
 
   const decrementWeight = () => setWeight(weight > 0 ? weight - 1 : 0);
-  const onChange = (e) => {
-    console.log(e);
+
+  const marks = {
+    0: "0 lbs",
+    100: { style: { whiteSpace: "nowrap" }, label: <span>100 lbs</span> },
   };
 
   return (
@@ -143,7 +145,13 @@ const StyleGuide = () => {
         <Heading level={2}>Slider</Heading>
       </Flex>
       <div className="px-12 w-10/12">
-        <CustomSlider />
+        <Slider
+          min={0}
+          max={100}
+          marks={marks}
+          defaultValue={50}
+          className="font-paragraph"
+        />
       </div>
       <Divider />
 
@@ -156,23 +164,59 @@ const StyleGuide = () => {
         </Flex>
         <Flex className="mb-4">
           <RedistributeCard
+            image={
+              "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"
+            }
             weight={weight}
             onIncrement={incrementWeight}
             onDecrement={decrementWeight}
+            name={"Pumpkin Pie"}
+            description={"Pumpkin, sugar, butter"}
+            time={"11/20/2023"}
+            status={"Untouched"}
           />
         </Flex>
         <Flex className="mb-4">
-          <RecycleOrderHistoryCard />
+          <RecycleOrderHistoryCard
+            name={"Recycle Order 1"}
+            weight={"5"}
+            type={"Partial Solid"}
+            company={"RecycleHero"}
+            time={"11/12/2023 21:00"}
+          />
         </Flex>
-          <Flex className="mb-4">
-              <MenuItemPreviewCard name={"HASS OMELETE"} price={"$22"} image={"https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"}/>
-          </Flex>
-          <Flex className="mb-4">
-              <OrderItemCard name={"HASS OMELETE"} description={"Bacon, avacado, monterey jack, pico de gallo, mild cheddar"} count={2} image={"https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"}/>
-          </Flex>
-          <Flex className="mb-4">
-              <MenuItemDetailCard name={"HASS OMELETE"} description={"Bacon, avacado, monterey jack, pico de gallo, mild cheddar"} image={"https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"}/>
-          </Flex>
+        <Flex className="mb-4">
+          <MenuItemPreviewCard
+            name={"HASS OMELETE"}
+            price={"$22"}
+            image={
+              "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"
+            }
+          />
+        </Flex>
+        <Flex className="mb-4">
+          <OrderItemCard
+            name={"HASS OMELETE"}
+            description={
+              "Bacon, avacado, monterey jack, pico de gallo, mild cheddar"
+            }
+            count={2}
+            image={
+              "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"
+            }
+          />
+        </Flex>
+        <Flex className="mb-4">
+          <MenuItemDetailCard
+            name={"HASS OMELETE"}
+            description={
+              "Bacon, avacado, monterey jack, pico de gallo, mild cheddar"
+            }
+            image={
+              "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"
+            }
+          />
+        </Flex>
       </Flex>
 
       <Divider />
@@ -181,12 +225,7 @@ const StyleGuide = () => {
         <Heading level={2}>Input</Heading>
       </Flex>
       <Flex vertical justify="flex-start" gap="middle" className="px-12">
-        <CustomInput
-          className="w-80"
-          placeholder="Basic Input"
-          allowClear
-          onChange={onChange}
-        />
+        <CustomInput className="w-80" placeholder="Basic Input" allowClear />
 
         <CustomInputWithLabel
           className="w-80"
@@ -223,7 +262,7 @@ const StyleGuide = () => {
 
       <Flex vertical justify="flex-start" gap="middle" className="px-12">
         <Select
-          className="font-paragraph w-60"
+          className="font-paragraph w-60 text-left"
           placeholder="Select an option"
           onChange={""}
           options={[
@@ -234,9 +273,6 @@ const StyleGuide = () => {
           ]}
         />
       </Flex>
-
-      <br />
-      <br />
     </>
   );
 };

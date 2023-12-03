@@ -1,10 +1,10 @@
 import React from "react";
 import { PlusCircleOutlined, RightOutlined } from "@ant-design/icons";
 
-const RecycleOrderCard = ({ clickCreateRecycleOrderCard, ...props }) => (
+const RecycleOrderCard = ({ onClickCreateRecycleOrderCard, ...props }) => (
   <div
     className="border-solid border-primary h-24 w-80 flex bg-white rounded-lg overflow-hidden shadow-md"
-    onClick={clickCreateRecycleOrderCard}
+    onClick={onClickCreateRecycleOrderCard}
   >
     <div className="flex bg-primary w-1/3 items-center justify-center">
       <PlusCircleOutlined className="text-3xl text-white" />

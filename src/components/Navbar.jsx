@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="max-w-screen-xl mx-auto">
         <ul className="flex justify-between items-center list-none p-0 m-0">
           <li className="flex-1">
-            <NavLink to="/" className="flex flex-col items-center justify-center py-2 px-1 sm:px-4 w-full text-xs sm:text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 no-underline">
+            <NavLink to="/community" className="flex flex-col items-center justify-center py-2 px-1 sm:px-4 w-full text-xs sm:text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 no-underline">
               <RiCommunityFill className="h-6 w-6" />
               <span>Community</span>
             </NavLink>
