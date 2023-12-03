@@ -44,10 +44,6 @@ const StyleGuide = () => {
 
   const decrementWeight = () => setWeight(weight > 0 ? weight - 1 : 0);
 
-  const onChangeInputValue = (e) => {
-    console.log(e);
-  };
-
   const marks = {
     0: "0 lbs",
     100: { style: { whiteSpace: "nowrap" }, label: <span>100 lbs</span> },
@@ -149,7 +145,13 @@ const StyleGuide = () => {
         <Heading level={2}>Slider</Heading>
       </Flex>
       <div className="px-12 w-10/12">
-        <Slider min={0} max={100} marks={marks} defaultValue={50} />
+        <Slider
+          min={0}
+          max={100}
+          marks={marks}
+          defaultValue={50}
+          className="font-paragraph"
+        />
       </div>
       <Divider />
 
@@ -223,12 +225,7 @@ const StyleGuide = () => {
         <Heading level={2}>Input</Heading>
       </Flex>
       <Flex vertical justify="flex-start" gap="middle" className="px-12">
-        <CustomInput
-          className="w-80"
-          placeholder="Basic Input"
-          allowClear
-          onChange={onChangeInputValue}
-        />
+        <CustomInput className="w-80" placeholder="Basic Input" allowClear />
 
         <CustomInputWithLabel
           className="w-80"
@@ -265,7 +262,7 @@ const StyleGuide = () => {
 
       <Flex vertical justify="flex-start" gap="middle" className="px-12">
         <Select
-          className="font-paragraph w-60"
+          className="font-paragraph w-60 text-left"
           placeholder="Select an option"
           onChange={""}
           options={[
@@ -276,9 +273,6 @@ const StyleGuide = () => {
           ]}
         />
       </Flex>
-
-      <br />
-      <br />
     </>
   );
 };
