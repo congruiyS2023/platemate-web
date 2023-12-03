@@ -4,7 +4,7 @@ import { Badge } from 'antd';
 const OrderItemCard = ({ onClickOrderItem, ...props }) => (
     <Badge count={props.count}>
     <div
-        className="border-solid border-primary h-24 w-80 flex bg-white rounded-lg overflow-hidden shadow-md"
+        className="border-solid border-primary h-24 w-full flex bg-white rounded-lg overflow-hidden shadow-md"
         onClick={onClickOrderItem}>
         <div className="flex bg-primary w-1/3 items-center justify-center">
             <img className="w-24 h-24"

@@ -8,7 +8,7 @@ const MenuItemPreviewCard = ({ className, onClickMenuItem, ...props }) => (
     hoverable={true}
     cover={
       props.image ? (
-        <img className="h-32 w-32" alt="example" src={props.image} />
+        <img className="max-h-32 w-32" alt="example" src={props.image} />
       ) : (
         <div className="bg-primary h-32 rounded-t-lg overflow-hidden shadow-md relative">
           <PictureOutlined
@@ -23,7 +23,7 @@ const MenuItemPreviewCard = ({ className, onClickMenuItem, ...props }) => (
       )
     }
     onClick={onClickMenuItem}
-    className={`border-2 border-primary w-40 ${className}`}
+    className={`border-2 border-primary w-full ${className}`}
   >
     <div className="flex flex-col">
       <div>

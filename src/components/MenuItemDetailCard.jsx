@@ -9,7 +9,7 @@ const MenuItemDetailCard = ({ ...props }) => (
                 src={props.image}
             />
         }
-        className="border-2 border-solid border-primary w-80"
+        className="border-2 border-solid border-primary w-full"
     >
         <div className="flex flex-col">
             <div>

@@ -7,7 +7,6 @@ import Home from "./routes/Home";
 import StyleGuide from "./routes/StyleGuide";
 import Community from "./routes/Community";
 import RedistPost from "./routes/RedistPost";
-import UserHome from "./routes/UserHome";
 import Menu from "./routes/Menu";
 import Login from "./routes/Login";
 import Logout from "./routes/Logout";
@@ -18,6 +17,12 @@ import Coupons from "./routes/Coupons";
 import JoinChallange from "./routes/JoinChallange";
 import JoinChallangeSuccess from "./routes/JoinChallangeSuccess";
 import Chat from "./pages/chat";
+import React from "react";
+import UserHome from "./routes/UserHome";
+import OrderSummaryPage from "./routes/OrderSummaryPage";
+import MenuDetailPage from "./routes/MenuDetailPage";
+import OrderConfirmationPage from "./routes/OrderConfirmationPage";
+import OrderHistoryPage from "./routes/OrderHistoryPage";
 
 function App() {
   return (
@@ -33,7 +38,6 @@ function App() {
               <Route path="/style-guide" element={<StyleGuide />} />
               <Route path="/login/:type" element={<Login />} />
               <Route path="/logout/*" element={<Logout />} />
-              <Route path="/user-home" element={<UserHome />} />
               <Route path="/menu" element={<Menu />} />
               <Route path="/reward" element={<Reward />} />
               <Route path="/reward/coupon-sent" element={<CouponSent />} />
@@ -54,6 +58,11 @@ function App() {
                 path="/recycle/chat-with-recycle-companies"
                 element={<Chat />}
               />
+              <Route path="/user-home" element={<UserHome />} />
+              <Route path="/user-home/menu-detail" element={<MenuDetailPage/>} />
+              <Route path="/user-home/order-summary" element={<OrderSummaryPage/>} />
+              <Route path="/user-home/order-confirmation" element={<OrderConfirmationPage/>} />
+              <Route path="/user-home/order-history" element={<OrderHistoryPage/>} />
             </Routes>
           </div>
         </div>
