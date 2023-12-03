@@ -30,7 +30,6 @@ export default function Chat() {
     }, [setMessages, name]);
 
     const handleSendMessage = (msg) => {
-        console.log(msg);
         if (msg !== "") {
             setMessages((prevMessages) => [
                 ...prevMessages,
