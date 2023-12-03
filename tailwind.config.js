@@ -15,6 +15,10 @@ module.exports = {
         primary: "#12664f",
         midnight: "#3E4140",
       },
+      width: {
+        '3/10': '30%',
+        '88':'22rem'
+      }
     },
     safelist: [],
   },
