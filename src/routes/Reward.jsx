@@ -6,6 +6,7 @@ import Paragraph from "../components/Paragraph";
 import Link from "../components/Link";
 import {CustomInput} from "../components/CustomInputs";
 import CustomButton from "../components/CustomButton";
+import HeaderNav from "../components/HeaderNav";
 
 
 const Reward = () => {
@@ -39,7 +40,8 @@ const Reward = () => {
 
     return (    
     <div>
-        <Flex vertical className="pt-20">
+        <HeaderNav header="REWARD" showBackButton={false} showLogOutButton={true} />
+        <Flex vertical>
             <Flex vertical className="px-8">
                 <Heading level={1} type="success">
                     ZERO-WASTE CHALLENG

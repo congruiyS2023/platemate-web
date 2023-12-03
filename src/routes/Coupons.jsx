@@ -7,8 +7,12 @@ import Link from "../components/Link";
 import CustomButton from "../components/CustomButton";
 import { CustomInput } from "../components/CustomInputs";
 import { Input } from 'antd';
+import HeaderNav from "../components/HeaderNav";
+import { useNavigate } from 'react-router-dom';
 
 const Coupons = () => {
+    const navigate = useNavigate();
+
     const { TextArea } = Input;
     const [coupons, setCoupons] = useState([
         { id: 1, description: '¥3 - within 15 days' },
@@ -41,12 +45,20 @@ const Coupons = () => {
         setNewCouponDescription('');
     };
 
+    const handleBackReward = () => {
+        navigate('/reward');
+    };
+
+    const handleBackCoupon = () => {
+        setShowAddCoupon(false);
+    }
 
     return (
         <div>
             {showAddCoupon ? (
-                    <div>
-                    <Flex vertical className="pt-20 px-8">
+                <div>
+                    <HeaderNav header="COUPONS" showBackButton={true} showLogOutButton={true} backButtonOnClick={handleBackCoupon}/>
+                    <Flex vertical className="px-8">
                         <Heading level={1}>ADD A COUPON</Heading>
                         <Heading level={2}>coupon title</Heading>
                         <CustomInput
@@ -79,7 +91,8 @@ const Coupons = () => {
                 </div>
             ) : (
                 <div>
-                    <Flex vertical className="px-8 pt-20">
+                    <HeaderNav header="COUPONS" showBackButton={true} showLogOutButton={true} backButtonOnClick={handleBackReward}/>
+                    <Flex vertical className="px-8">
                         <Heading level={1}>MANAGE COUPONS</Heading>
                         <Heading level={2}>current coupons</Heading>
                         {coupons.map((coupon) => (
