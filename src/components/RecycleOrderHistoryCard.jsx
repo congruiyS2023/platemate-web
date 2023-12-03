@@ -2,7 +2,7 @@ import React from "react";
 import { ShoppingCartOutlined, RightOutlined } from "@ant-design/icons";
 import { Card } from "antd";
 
-const RecycleOrderHistoryCard = ({ clickRecycleHistoryCard, ...props }) => (
+const RecycleOrderHistoryCard = ({ onClickRecycleHistoryCard, ...props }) => (
   <Card
     title={
       <div>
@@ -13,7 +13,7 @@ const RecycleOrderHistoryCard = ({ clickRecycleHistoryCard, ...props }) => (
       </div>
     }
     className="border-2 border-solid border-primary w-80"
-    onClick={clickRecycleHistoryCard}
+    onClick={onClickRecycleHistoryCard}
   >
     <div className="flex ml-2">
       <div className="text-sm grid grid-cols-2 items-center">

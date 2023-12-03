@@ -2,16 +2,24 @@ import React from "react";
 import {
   PlusOutlined,
   MinusOutlined,
-  PictureOutlined,
+  InfoCircleOutlined,
 } from "@ant-design/icons";
 
-const RedistributeCard = ({ weight, onIncrement, onDecrement, ...props }) => (
+const RedistributeCard = ({
+  onClickRedistributeCard,
+  onIncrement,
+  onDecrement,
+  ...props
+}) => (
   <div className="border-solid border-primary h-40 w-80 flex bg-white rounded-lg overflow-hidden shadow-md">
-    <div className="flex bg-primary w-1/3  items-center justify-center">
-      <PictureOutlined className="text-3xl text-white" />
+    <div
+      className="flex bg-primary w-1/3  items-center justify-center"
+      onClick={onClickRedistributeCard}
+    >
+      <InfoCircleOutlined className="text-3xl text-white" />
     </div>
     <div className="flex flex-col w-64 mt-2">
-      <div className="mx-3">
+      <div className="mx-3" onClick={onClickRedistributeCard}>
         <span className="text-primary font-bold text-lg font-heading">
           {props.name}
         </span>
@@ -25,7 +33,7 @@ const RedistributeCard = ({ weight, onIncrement, onDecrement, ...props }) => (
           Pick up by {props.time}
         </p>
         <p className="text-xs text-black text-primary">
-          <span className="font-bold font-paragraph">{weight}</span>
+          <span className="font-bold font-paragraph">{props.weight}</span>
           <span className="text-xs text-black ml-1 font-paragraph">lb</span>
         </p>
       </div>
