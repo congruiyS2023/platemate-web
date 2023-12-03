@@ -1,4 +1,4 @@
-import { Flex } from "antd";
+import { Divider, Flex } from "antd";
 import Heading from "./Heading";
 import CustomButton from "./CustomButton";
 import { RxArrowLeft, RxExit, RxPlusCircled } from "react-icons/rx";
@@ -13,7 +13,7 @@ const HeaderNav = ({ header, showBackButton, backButtonOnClick, showPlusButton, 
     );
 
     const backButton = showBackButton ? (
-        <CustomButton  className="w-7 h-7 absolute left-6 top-8 border-none"
+        <CustomButton className="w-7 h-7 absolute left-6 top-8 border-none"
             icon={<RxArrowLeft className="scale-[2]" />}
             onClick={backButtonOnClick}>
         </CustomButton>
@@ -33,13 +33,14 @@ const HeaderNav = ({ header, showBackButton, backButtonOnClick, showPlusButton, 
     ) : null;
 
     return (
-        <div className="relative w-full">
+        <div className="sticky top-0 bg-white">
             {backButton}
             <Flex className="pt-4" justify="center">
                 <Heading level={1} className="text-center">{header}</Heading>
             </Flex>
             {plusButton}
             {logOutButton}
+            <Divider />
         </div>
     );
 };
