@@ -9,7 +9,8 @@
     "colorBgBase": "#ffffff",
     "colorTextBase": "#222725",
     "fontSizeHeading1": 24,
-    "fontSizeHeading2": 18
+    "fontSizeHeading2": 18,
+    "fontFamily": "Barlow, sans-serif"
   },
   "components": {
     "Button": {
