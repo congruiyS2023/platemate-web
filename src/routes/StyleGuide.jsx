@@ -43,9 +43,6 @@ const StyleGuide = () => {
   const incrementWeight = () => setWeight(weight + 1);
 
   const decrementWeight = () => setWeight(weight > 0 ? weight - 1 : 0);
-  const onChange = (e) => {
-    console.log(e);
-  };
 
   return (
     <>
