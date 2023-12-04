@@ -9,11 +9,11 @@ const UserHome = () => {
     const fromJoinSuccess = location.state?.fromJoinSuccess;
 
     const handleJoin = () => {
-        navigate('/reward/join-challenge');
+        navigate('/user-home/join-challenge');
     }
 
     const handleJoinSuccess = () => {
-        navigate('/reward/join-challange-success');
+        navigate('/user-home/join-challange-success');
     }
 
     return (    

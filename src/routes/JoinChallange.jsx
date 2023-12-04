@@ -20,7 +20,7 @@ const JoinChallange = () => {
     };
 
     const handleJoin = () => {
-        navigate('/reward/Join-challange-success');
+        navigate('/user-home/Join-challange-success');
     }
 
     const handleSkip = () => {

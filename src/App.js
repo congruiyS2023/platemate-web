@@ -30,8 +30,8 @@ function App() {
               <Route path="/reward/coupon-sent" element={<CouponSent />} />
               <Route path="/reward/challenge-details" element={<ChallengeDetails />} />
               <Route path="/reward/coupons" element={<Coupons />} />
-              <Route path="/reward/join-challenge" element={<JoinChallange />} />
-              <Route path="/reward/join-challange-success" element={<JoinChallangeSuccess />} />
+              <Route path="/user-home/join-challenge" element={<JoinChallange />} />
+              <Route path="/user-home/join-challange-success" element={<JoinChallangeSuccess />} />
             </Routes>
           </div>
           <Navbar />
