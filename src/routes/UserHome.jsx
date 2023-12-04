@@ -3,17 +3,17 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import ChallengeModal from "../components/ChallengeModal";
 import Link from "../components/Link";
 
-const Menu = () => {
+const UserHome = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const fromJoinSuccess = location.state?.fromJoinSuccess;
 
     const handleJoin = () => {
-        navigate('/join-challenge');
+        navigate('/user-home/join-challenge');
     }
 
     const handleJoinSuccess = () => {
-        navigate('/join-challange-success');
+        navigate('/user-home/join-challange-success');
     }
 
     return (    
@@ -33,4 +33,4 @@ const Menu = () => {
     );
 };
 
-export default Menu;
+export default UserHome;

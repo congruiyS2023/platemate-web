@@ -20,11 +20,11 @@ const JoinChallange = () => {
     };
 
     const handleJoin = () => {
-        navigate('/Join-challange-success');
+        navigate('/user-home/Join-challange-success');
     }
 
     const handleSkip = () => {
-        navigate('/menu', { state: { skipModal: true } });
+        navigate('/user-home', { state: { skipModal: true } });
     }
 
     return (    

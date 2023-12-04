@@ -26,15 +26,15 @@ const Reward = () => {
     const navigate = useNavigate();
 
     const handleSendCoupon = () => {
-        navigate('/coupon-sent');
+        navigate('/reward/coupon-sent');
     };
 
     const handleViewDetails = () => {
-        navigate('/challenge-details');
+        navigate('/reward/challenge-details');
     };
 
     const handleManageCoupons = () => {
-        navigate('/coupons');
+        navigate('/reward/coupons');
     };
 
 
