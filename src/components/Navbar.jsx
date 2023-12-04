@@ -37,7 +37,7 @@ const Navbar = () => {
               className={({ isActive }) => menuItemClassName(isActive, '/community')}
             >
               <RiCommunityFill className="h-6 w-6" />
-              <span>Community</span>
+              <span className='font-paragraph'>Community</span>
             </NavLink>
           </li>
           <li className="flex-1">
@@ -46,7 +46,7 @@ const Navbar = () => {
                 className={({ isActive }) => menuItemClassName(isActive, '/recycle')}
               >
               <FaRecycle className="h-6 w-6" />
-              <span>Recycle</span>
+              <span className='font-paragraph'>Recycle</span>
             </NavLink>
           </li>
           <li className="flex-1">
@@ -55,7 +55,7 @@ const Navbar = () => {
                 className={({ isActive }) => menuItemClassName(isActive, '/menu')}
               >
               <MdOutlineRestaurantMenu className="h-6 w-6" />
-              <span>Menu</span>
+              <span className='font-paragraph'>Menu</span>
             </NavLink>
           </li>
           <li className="flex-1">
@@ -64,7 +64,7 @@ const Navbar = () => {
                 className={({ isActive }) => menuItemClassName(isActive, '/reward')}
               >
               <RiCoupon3Fill className="h-6 w-6" />
-              <span>Reward</span>
+              <span className='font-paragraph'>Reward</span>
             </NavLink>
           </li>
         </ul>
