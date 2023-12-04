@@ -4,18 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Logout = () => {
-  const lastParam = useLocation().pathname.split("/").pop();
-
-  console.log(lastParam);
+  // Get param. e.g.: localhost:3000/logout/reward/abc will give reward/abc
+  const param = useLocation().pathname.split("/").slice(2).join("/");
 
   const navigate = useNavigate();
 
   const onClickNo = () => {
-    navigate(`/${lastParam}`);
+    // Return to the previous page
+    navigate(`/${param}`);
   };
 
   const onClickYes = () => {
-    if (lastParam === "company") {
+    if (param[0] === "company") {
       navigate("/login/company");
     } else {
       navigate(`/login/restaurant`);

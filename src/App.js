@@ -24,16 +24,18 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/style-guide" element={<StyleGuide />} />
-              <Route path="/menu" element={<Menu />} />
-              <Route path="/login/restaurant" element={<Login />} />
-              <Route path="/login/company" element={<Login />} />
-              <Route path="/logout/:type" element={<Logout />} />
+              <Route path="/menu/" element={<Menu />} />
+              <Route path="/login/:type" element={<Login />} />
+              <Route path="/logout/*" element={<Logout />} />
               <Route path="/reward" element={<Reward />} />
               <Route path="/coupon-sent" element={<CouponSent />} />
               <Route path="/challenge-details" element={<ChallengeDetails />} />
               <Route path="/coupons" element={<Coupons />} />
               <Route path="/join-challenge" element={<JoinChallange />} />
-              <Route path="/join-challange-success" element={<JoinChallangeSuccess />} />
+              <Route
+                path="/join-challange-success"
+                element={<JoinChallangeSuccess />}
+              />
             </Routes>
           </div>
         </div>

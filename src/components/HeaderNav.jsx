@@ -13,9 +13,10 @@ const HeaderNav = ({
   plusButtonOnClick,
   showLogOutButton,
 }) => {
-  const lastParam = useLocation().pathname.split("/").pop();
+  // Get current url path. e.g. localhost:3000/reward/abc will give /reward/abc
+  const param = useLocation().pathname;
   const logoutIcon = (
-    <NavLink to={`/logout/${lastParam}`} className={"text-midnight"}>
+    <NavLink to={`/logout${param}`} className={"text-midnight"}>
       <RxExit className="scale-[2]" />
     </NavLink>
   );

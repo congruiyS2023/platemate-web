@@ -13,8 +13,6 @@ import { useLocation } from "react-router-dom";
 const Login = () => {
   const userType = useLocation().pathname.split("/").pop();
 
-  console.log(userType);
-
   const [viewState, setViewState] = useState("Home");
 
   const navigate = useNavigate();
@@ -26,7 +24,11 @@ const Login = () => {
   const renderContent = () => {
     switch (viewState) {
       case "Home":
-        return homePageState();
+        if (userType !== "customer") {
+          return homePageState();
+        } else {
+          return customerPageState();
+        }
       case "Login":
         return loginPageState();
       default:
@@ -36,12 +38,44 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(userType === "restaurant"){
+    if (userType === "restaurant") {
       navigate("/community");
+    } else {
+      navigate("/company");
     }
-    else{
-      navigate("/company")
-    }
+  };
+
+  const onClickStartOrder = () => {
+    navigate("/user-home");
+  };
+
+  const customerPageState = () => {
+    return (
+      <>
+        <Flex vertical justify="center" align="center" className="pt-24">
+          <Flex vertical justify="center" align="center">
+            <p className="text-3xl text-primary font-extrabold font-heading">
+              Welcome
+            </p>
+            <p className="text-3xl text-primary font-extrabold font-heading">
+              To
+            </p>
+          </Flex>
+          <Flex justify="center" align="center">
+            <p className="text-5xl text-black font-logo">Trattoria</p>
+          </Flex>
+          <Flex align="center" justify={"center"} className="pl-6 pr-6 pt-24">
+            <CustomButton
+              className="text-white border-primary h-16 text-paragraph justify-center text-2xl"
+              type={"primary"}
+              onClick={onClickStartOrder}
+            >
+              Start Your Order
+            </CustomButton>
+          </Flex>
+        </Flex>
+      </>
+    );
   };
 
   const homePageState = () => {
