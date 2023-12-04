@@ -14,12 +14,12 @@ import ChallengeDetails from "./routes/ChallengeDetails";
 import Coupons from "./routes/Coupons";
 import JoinChallange from "./routes/JoinChallange";
 import JoinChallangeSuccess from "./routes/JoinChallangeSuccess";
-import Chat from "./pages/chat";
 import Recycle from "./routes/recycle/Recycle";
 import CreateNewRecycleOrder from "./routes/recycle/CreateNewRecycleOrder";
 import EditExistingRecycleOrder from "./routes/recycle/EditExistingRecycleOrder";
 import ExistingOrderEditView from "./routes/recycle/ExistingOrderEditView";
 import ChatWithRecycleCompanies from "./routes/recycle/ChatWithRecycleCompanies";
+import Chat from "./routes/recycle/Chat";
 import RecycleHistory from "./routes/recycle/RecycleHistory";
 
 function App() {

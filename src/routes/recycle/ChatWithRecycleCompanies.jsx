@@ -13,9 +13,15 @@ const ChatWithRecycleCompanies = () => {
     navigate("/recycle");
   };
 
-  const handleChatCardClick = () => {
+  //   const handleChatCardClick = () => {
+  //     navigate(
+  //       "/recycle/chat-with-existing-recycle-company/d7e5e085-30d4-4160-b1ae-936b07eff71a"
+  //     );
+  //   };
+  const handleChatCardClick = (companyName) => {
     navigate(
-      "/recycle/chat-with-existing-recycle-company/d7e5e085-30d4-4160-b1ae-936b07eff71a"
+      "/recycle/chat-with-existing-recycle-company/d7e5e085-30d4-4160-b1ae-936b07eff71a",
+      { state: { company: companyName } }
     );
   };
 
@@ -43,8 +49,8 @@ const ChatWithRecycleCompanies = () => {
               type={"Partial Solid"}
               company={"Recycle Hero"}
               time={"11/12/2023 21:00"}
-              onClickChatRecycleCompanyCard={handleChatCardClick}
-            />
+              onClickChatRecycleCompanyCard={() => handleChatCardClick("Recycle Hero")}
+              />
           </Flex>
           <Flex className="mt-4">
             <ChatWithRecycleCompanyCard
@@ -53,8 +59,8 @@ const ChatWithRecycleCompanies = () => {
               type={"Liquid"}
               company={"Bay Area BioGas"}
               time={"11/12/2023 20:00"}
-              onClickChatRecycleCompanyCard={handleChatCardClick}
-            />
+              onClickChatRecycleCompanyCard={() => handleChatCardClick("Bay Area BioGas")}
+              />
           </Flex>
         </Flex>
       </Flex>
