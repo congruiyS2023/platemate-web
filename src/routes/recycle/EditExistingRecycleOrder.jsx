@@ -14,7 +14,7 @@ const CreateNewRecycleOrder = () => {
   }
 
   const handleExistingOrderCardClick = () => {
-    navigate("/recycle/edit-existing-recycle-order/d7e5e085-30d4-4160-b1ae-936b07eff71a");
+    navigate("/recycle/chat-with-existing-recycle-company/d7e5e085-30d4-4160-b1ae-936b07eff71a");
   }
 
   return (
