@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Flex } from "antd";
-import Heading from "../../components/Heading";
 import Paragraph from "../../components/Paragraph";
 import RecycleOrderCard from "../../components/RecycleOrderCard";
 import HeaderNav from "../../components/HeaderNav";
@@ -32,15 +31,12 @@ const Recycle = () => {
   return (
     <div>
       <HeaderNav
-        header="PLATEMATE"
+        header="RECYCLE"
         showBackButton={false}
         showLogOutButton={true}
       />
       <Flex vertical>
         <Flex vertical className="px-8">
-          <Heading level={1} type="success">
-            Recycle Leftovers
-          </Heading>
           <Paragraph>
             Use this page to create or manage recycle orders. You can also see
             how much food waste you have recycled in the Recycle History!

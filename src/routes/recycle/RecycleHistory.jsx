@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Flex, Table } from "antd";
+import { Table } from "antd";
 
-import Heading from "../../components/Heading";
+import { useNavigate } from "react-router-dom";
 import Paragraph from "../../components/Paragraph";
 
 import HeaderNav from "../../components/HeaderNav";
@@ -111,21 +111,23 @@ const CreateNewRecycleOrder = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const navigate = useNavigate();
+
+  const handleBackButtonOnClick = () => {
+    navigate("/recycle");
+  };
+
   return (
     <div>
       <HeaderNav
-        header="PLATEMATE"
-        showBackButton={false}
+        header="Recycle History"
+        showBackButton={true}
         showLogOutButton={true}
+        backButtonOnClick={handleBackButtonOnClick}
       />
-      <Flex vertical className="mx-8">
-        <Heading level={1} type="success">
-          Recycle History
-        </Heading>
-        <Paragraph>
-          Check how much food waste you have recycled so far!
-        </Paragraph>
-      </Flex>
+      <Paragraph className="text-center mx-2" type="success">
+        Check how much food waste you have recycled so far!
+      </Paragraph>
 
       <div className="mx-8 w-10/12">
         <LineChart width={chartWidth} height={300} data={sortedData}>
@@ -155,7 +157,7 @@ const CreateNewRecycleOrder = () => {
           columns={columns}
           dataSource={data}
           pagination={{ pageSize: 5 }}
-          scroll={{ y: 280 }}
+          scroll={{ y: 350 }}
         />
       </div>
     </div>
