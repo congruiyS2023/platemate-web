@@ -8,8 +8,13 @@ import {
 import Heading from "../components/Heading";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const RestaurantOwnerLogin = () => {
+const Login = () => {
+  const userType = useLocation().pathname.split("/").pop();
+
+  console.log(userType);
+
   const [viewState, setViewState] = useState("Home");
 
   const navigate = useNavigate();
@@ -31,7 +36,12 @@ const RestaurantOwnerLogin = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate("/community");
+    if(userType === "restaurant"){
+      navigate("/community");
+    }
+    else{
+      navigate("/company")
+    }
   };
 
   const homePageState = () => {
@@ -43,13 +53,13 @@ const RestaurantOwnerLogin = () => {
           </Flex>
           <Flex vertical justify="center" align="center">
             <p className="text-3xl text-primary font-extrabold font-heading">
-              WELCOME
+              Welcome
             </p>
             <p className="text-3xl text-primary font-extrabold font-heading">
               To
             </p>
             <p className="text-3xl text-primary font-extrabold font-heading">
-              PLATEMATE
+              Platemate
             </p>
           </Flex>
           <Flex align="center" justify={"center"} className="pl-6 pr-6 pt-24">
@@ -58,7 +68,11 @@ const RestaurantOwnerLogin = () => {
               type={"primary"}
               onClick={onClickMainPage}
             >
-              RESTAURANT OWNER LOGIN
+              {`${
+                userType === "restaurant"
+                  ? "Restaurant Owner Login"
+                  : "Recycle Company Login"
+              }`}
             </CustomButton>
           </Flex>
         </Flex>
@@ -112,7 +126,7 @@ const RestaurantOwnerLogin = () => {
                   type={"primary"}
                   htmlType="submit"
                 >
-                  RESTAURANT OWNER LOGIN
+                  Login
                 </CustomButton>
               </Flex>
             </form>
@@ -124,4 +138,4 @@ const RestaurantOwnerLogin = () => {
   return <>{renderContent()}</>;
 };
 
-export default RestaurantOwnerLogin;
+export default Login;
