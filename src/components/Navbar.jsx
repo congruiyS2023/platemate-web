@@ -13,25 +13,25 @@ const Navbar = () => {
           <li className="flex-1">
             <NavLink to="/community" className="flex flex-col items-center justify-center py-2 px-1 sm:px-4 w-full text-xs sm:text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 no-underline">
               <RiCommunityFill className="h-6 w-6" />
-              Community
+              <span>Community</span>
             </NavLink>
           </li>
           <li className="flex-1">
             <NavLink to="/style-guide" className="flex flex-col items-center justify-center py-2 px-1 sm:px-4 w-full text-xs sm:text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 no-underline">
               <FaRecycle className="h-6 w-6" />
-              Recycle
+              <span>Recycle</span>
             </NavLink>
           </li>
           <li className="flex-1">
             <NavLink to="/menu" className="flex flex-col items-center justify-center py-2 px-1 sm:px-4 w-full text-xs sm:text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 no-underline">
               <MdOutlineRestaurantMenu className="h-6 w-6" />
-              Menu
+              <span>Menu</span>
             </NavLink>
           </li>
           <li className="flex-1">
             <NavLink to="/reward" className="flex flex-col items-center justify-center py-2 px-1 sm:px-4 w-full text-xs sm:text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 no-underline">
               <RiCoupon3Fill className="h-6 w-6" />
-              Reward
+              <span>Reward</span>
             </NavLink>
           </li>
         </ul>
