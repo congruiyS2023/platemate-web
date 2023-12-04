@@ -13,6 +13,10 @@ const CreateNewRecycleOrder = () => {
     navigate("/recycle");
   }
 
+  const handleExistingOrderCardClick = () => {
+    navigate("/recycle/edit-existing-recycle-order/d7e5e085-30d4-4160-b1ae-936b07eff71a");
+  }
+
   return (
     <div>
       <HeaderNav
@@ -36,6 +40,7 @@ const CreateNewRecycleOrder = () => {
               type={"Partial Solid"}
               company={"RecycleHero"}
               time={"11/12/2023 21:00"}
+              onClickRecycleHistoryCard={handleExistingOrderCardClick}
             />
           </Flex>
 
@@ -46,6 +51,7 @@ const CreateNewRecycleOrder = () => {
               type={"Liquid"}
               company={"Bay Area BioGas"}
               time={"11/12/2023 20:00"}
+              onClickRecycleHistoryCard={handleExistingOrderCardClick}
             />
           </Flex>
         </Flex>

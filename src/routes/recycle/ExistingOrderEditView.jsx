@@ -11,11 +11,11 @@ import CustomButton from "../../components/CustomButton";
 import HeaderNav from "../../components/HeaderNav";
 import { Slider } from "antd";
 
-const CreateNewRecycleOrder = () => {
-  const [inputValue, setInputValue] = useState(50);
+const ExistingOrderEditView = () => {
+  const [inputValue, setInputValue] = useState(68);
   const [checkedStates, setCheckedStates] = useState({
     intactSolid: false,
-    partialSolid: false,
+    partialSolid: true,
     liquid: false,
   });
   const [selectedTimeslot, setSelectedTimeslot] = useState("");
@@ -33,9 +33,9 @@ const CreateNewRecycleOrder = () => {
     setCheckedStates({ ...checkedStates, [type]: e.target.checked });
   };
 
-  const [timeslot, setTimeslot] = useState('');
+  var timeslot;
   const handleTimeslotChange = (value) => {
-    setTimeslot(value)
+    timeslot = value.toString;
     setSelectedTimeslot(value);
   };
 
@@ -46,10 +46,14 @@ const CreateNewRecycleOrder = () => {
       !checkedStates.liquid) ||
     !selectedTimeslot;
 
-  const [createOrder, setCreateOrder] = useState(0);
+  const [editOrder, setEditOrder] = useState(0);
 
-  const handleCreateOrder = () => {
-    setCreateOrder(1);
+  const handleEditOrder = () => {
+    setEditOrder(1);
+  };
+
+  const handleCancelOrder = () => {
+    setEditOrder(2);
   };
 
   const marks = {
@@ -64,22 +68,20 @@ const CreateNewRecycleOrder = () => {
   };
 
   const handleBackButtonOnClick = () => {
-    navigate("/recycle");
-  }
+    navigate("/recycle/edit-existing-recycle-order");
+  };
   return (
     <>
-      {createOrder === 0 ? (
+      {editOrder === 0 && (
         <div>
           <HeaderNav
-            header="Create Recycle Order"
+            header="Edit Existing Order"
             showBackButton={true}
             showLogOutButton={true}
             backButtonOnClick={handleBackButtonOnClick}
           />
           <Paragraph className="mx-6">
-            Use this page to input more detailed information and create a
-            recycle order. One of the recycle companies close to you will accept
-            your order and recycle for you.
+            Use this page to edit or cancel existing recycle order.
           </Paragraph>
 
           <Flex vertical className="mx-8">
@@ -130,9 +132,9 @@ const CreateNewRecycleOrder = () => {
                 placeholder="Select one time slot"
                 onChange={handleTimeslotChange}
                 options={[
-                  { value: "20:00 - 21:00", label: "20:00 - 21:00" },
-                  { value: "21:00 - 22:00", label: "21:00 - 22:00" },
-                  { value: "22:00 - 23:00", label: "22:00 - 23:00" },
+                  { value: "1", label: "20:00 - 21:00" },
+                  { value: "2", label: "21:00 - 22:00" },
+                  { value: "3", label: "22:00 - 23:00" },
                 ]}
               />
             </div>
@@ -141,14 +143,19 @@ const CreateNewRecycleOrder = () => {
           <Flex vertical center className="mx-20 my-12">
             <CustomButton
               type="primary"
-              onClick={handleCreateOrder}
+              onClick={handleEditOrder}
               disabled={isButtonDisabled}
             >
-              Create Order
+              Confirm Update Order
+            </CustomButton>
+            <CustomButton type="primary" danger onClick={handleCancelOrder}>
+              Cancel Order
             </CustomButton>
           </Flex>
         </div>
-      ) : (
+      )}
+
+      {editOrder === 1 && (
         <div className="flex flex-col items-center justify-center">
           <div className="text-center mt-48 w-full max-w-lg">
             <Heading level={1} type="success">
@@ -160,7 +167,8 @@ const CreateNewRecycleOrder = () => {
               We have sent your request to recycle companies nearby.
             </Paragraph>
             <Paragraph>
-              Your food leftovers are expected to be picked up between {timeslot.replace(" - ", " and ")}.
+              Your food leftovers are expected to be picked up between{" "}
+              {timeslot}
             </Paragraph>
           </div>
           <div className="text-center mt-12 w-full max-w-lg">
@@ -182,4 +190,4 @@ const CreateNewRecycleOrder = () => {
   );
 };
 
-export default CreateNewRecycleOrder;
+export default ExistingOrderEditView;

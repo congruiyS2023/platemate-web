@@ -15,17 +15,17 @@ const Recycle = () => {
   const navigate = useNavigate();
 
   const handleCreateNewRecycleOrder = () => {
-    navigate("/create-new-recycle-order");
+    navigate("/recycle/create-new-recycle-order");
   };
 
   const handleEditExistingRecycleOrder = () => {
-    navigate("/edit-existing-recycle-order");
+    navigate("/recycle/edit-existing-recycle-order");
   };
   const handleChatWithRecycleCompanies = () => {
-    navigate("/chat-with-recycle-companies");
+    navigate("/recycle/chat-with-recycle-companies");
   };
   const handleRecycleOrderHistory = () => {
-    navigate("/recycle-history");
+    navigate("/recycle/recycle-history");
   };
 
   return (
