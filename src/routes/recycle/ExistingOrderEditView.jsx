@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Flex, Select } from "antd";
+import { Flex, Select, Modal } from "antd";
 import Heading from "../../components/Heading";
 import Paragraph from "../../components/Paragraph";
-
+import ButtonText from "../../components/ButtonText";
 import { CustomInput } from "../../components/CustomInputs";
 import { CustomCheckbox } from "../../components/CustomCheckbox";
+import RecycleOrderHistoryCard from "../../components/RecycleOrderHistoryCard";
 
 import CustomButton from "../../components/CustomButton";
 import HeaderNav from "../../components/HeaderNav";
@@ -18,7 +19,21 @@ const ExistingOrderEditView = () => {
     partialSolid: true,
     liquid: false,
   });
-  const [selectedTimeslot, setSelectedTimeslot] = useState("");
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+    setEditOrderState(2);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const handleSliderChange = (value) => {
     setInputValue(value);
@@ -33,27 +48,21 @@ const ExistingOrderEditView = () => {
     setCheckedStates({ ...checkedStates, [type]: e.target.checked });
   };
 
-  var timeslot;
+  const [timeslot, setTimeslot] = useState("21:00 - 22:00");
   const handleTimeslotChange = (value) => {
-    timeslot = value.toString;
-    setSelectedTimeslot(value);
+    setTimeslot(value);
   };
 
   const isButtonDisabled =
     inputValue === 0 ||
     (!checkedStates.intactSolid &&
       !checkedStates.partialSolid &&
-      !checkedStates.liquid) ||
-    !selectedTimeslot;
+      !checkedStates.liquid);
 
-  const [editOrder, setEditOrder] = useState(0);
+  const [editOrderState, setEditOrderState] = useState(0);
 
   const handleEditOrder = () => {
-    setEditOrder(1);
-  };
-
-  const handleCancelOrder = () => {
-    setEditOrder(2);
+    setEditOrderState(1);
   };
 
   const marks = {
@@ -63,8 +72,8 @@ const ExistingOrderEditView = () => {
 
   const navigate = useNavigate();
 
-  const handleReturnToRecyclePage = () => {
-    navigate("/recycle");
+  const handleReturnToExistingOrdersPage = () => {
+    navigate("/recycle/edit-existing-recycle-order");
   };
 
   const handleBackButtonOnClick = () => {
@@ -72,7 +81,7 @@ const ExistingOrderEditView = () => {
   };
   return (
     <>
-      {editOrder === 0 && (
+      {editOrderState === 0 && (
         <div>
           <HeaderNav
             header="Edit Existing Order"
@@ -131,10 +140,11 @@ const ExistingOrderEditView = () => {
                 className="font-paragraph w-full h-10"
                 placeholder="Select one time slot"
                 onChange={handleTimeslotChange}
+                value={timeslot}
                 options={[
-                  { value: "1", label: "20:00 - 21:00" },
-                  { value: "2", label: "21:00 - 22:00" },
-                  { value: "3", label: "22:00 - 23:00" },
+                  { value: "20:00 - 21:00", label: "20:00 - 21:00" },
+                  { value: "21:00 - 22:00", label: "21:00 - 22:00" },
+                  { value: "22:00 - 23:00", label: "22:00 - 23:00" },
                 ]}
               />
             </div>
@@ -148,18 +158,45 @@ const ExistingOrderEditView = () => {
             >
               Confirm Update Order
             </CustomButton>
-            <CustomButton type="primary" danger onClick={handleCancelOrder}>
+            <CustomButton
+              className="my-6"
+              type="primary"
+              danger
+              onClick={showModal}
+            >
               Cancel Order
             </CustomButton>
+            <Modal
+              title={
+                <Heading level={2} style={{ color: "#AF3800" }}>
+                  Confirmation
+                </Heading>
+              }
+              open={isModalOpen}
+              onOk={handleOk}
+              onCancel={handleCancel}
+              cancelText={<ButtonText color="black">Back</ButtonText>}
+              okText={<ButtonText color="black">Confirm Cancel</ButtonText>}
+              okType="danger"
+            >
+              <Paragraph>Are you sure you want to cancel this order?</Paragraph>
+              <RecycleOrderHistoryCard
+                name={"Recycle Order 1"}
+                weight={"5"}
+                type={"Partial Solid"}
+                company={"RecycleHero"}
+                time={"11/12/2023 21:00"}
+              />
+            </Modal>
           </Flex>
         </div>
       )}
 
-      {editOrder === 1 && (
+      {editOrderState === 1 && (
         <div className="flex flex-col items-center justify-center">
           <div className="text-center mt-48 w-full max-w-lg">
             <Heading level={1} type="success">
-              You are all set!
+              Your changes are saved!
             </Heading>
           </div>
           <div className="mt-24 mx-20">
@@ -168,7 +205,7 @@ const ExistingOrderEditView = () => {
             </Paragraph>
             <Paragraph>
               Your food leftovers are expected to be picked up between{" "}
-              {timeslot}
+              {timeslot.replace(" - ", " and ")}.
             </Paragraph>
           </div>
           <div className="text-center mt-12 w-full max-w-lg">
@@ -179,9 +216,32 @@ const ExistingOrderEditView = () => {
               className="mt-8"
               type="primary"
               size="large"
-              onClick={handleReturnToRecyclePage}
+              onClick={handleReturnToExistingOrdersPage}
             >
-              Return to Recycle Page
+              Return to Existing Orders Page
+            </CustomButton>
+          </div>
+        </div>
+      )}
+
+      {editOrderState === 2 && (
+        <div className="flex flex-col items-center justify-center">
+          <div className="text-center mt-48 w-full max-w-lg">
+            <Heading level={1} type="success">
+              Your are all set!
+            </Heading>
+          </div>
+          <div className="mt-24 mx-20">
+            <Paragraph>We have canceled your order.</Paragraph>
+          </div>
+          <div className="text-center mt-12 w-full max-w-lg">
+            <CustomButton
+              className="mt-8"
+              type="primary"
+              size="large"
+              onClick={handleReturnToExistingOrdersPage}
+            >
+              Return to Existing Orders Page
             </CustomButton>
           </div>
         </div>
