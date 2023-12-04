@@ -7,7 +7,7 @@ import "./App.css";
 import Home from "./routes/Home";
 import StyleGuide from "./routes/StyleGuide";
 import Community from "./routes/Community";
-import NewRedistPost from "./routes/NewRedistPost";
+import RedistPost from "./routes/RedistPost";
 
 function App() {
   return (
@@ -18,7 +18,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/community" element={<Community />} />
-              <Route path="/community/new" element={<NewRedistPost />}/>
+              <Route path="/community/new" element={<RedistPost />}/>
+              <Route path="/community/:id/edit" element={<RedistPost />}/>
               <Route path="/style-guide" element={<StyleGuide />} />
             </Routes>
           </div>
