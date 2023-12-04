@@ -8,6 +8,12 @@ import StyleGuide from "./routes/StyleGuide";
 import Menu from "./routes/Menu";
 import Login from "./routes/Login";
 import Logout from "./routes/Logout";
+import Reward from "./routes/Reward";
+import CouponSent from "./routes/CouponSent";
+import ChallengeDetails from "./routes/ChallengeDetails";
+import Coupons from "./routes/Coupons";
+import JoinChallange from "./routes/JoinChallange";
+import JoinChallangeSuccess from "./routes/JoinChallangeSuccess";
 
 function App() {
   return (
@@ -22,6 +28,12 @@ function App() {
               <Route path="/login/restaurant" element={<Login />} />
               <Route path="/login/company" element={<Login />} />
               <Route path="/logout/:type" element={<Logout />} />
+              <Route path="/reward" element={<Reward />} />
+              <Route path="/coupon-sent" element={<CouponSent />} />
+              <Route path="/challenge-details" element={<ChallengeDetails />} />
+              <Route path="/coupons" element={<Coupons />} />
+              <Route path="/join-challenge" element={<JoinChallange />} />
+              <Route path="/join-challange-success" element={<JoinChallangeSuccess />} />
             </Routes>
           </div>
         </div>
