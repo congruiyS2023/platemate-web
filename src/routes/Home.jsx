@@ -1,4 +1,5 @@
 import logo from "../logo.svg";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
           Style Guide
         </a>
       </header>
+      <Navbar />
     </>
   );
 };

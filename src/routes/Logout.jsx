@@ -15,6 +15,7 @@ const Logout = () => {
   };
 
   const onClickYes = () => {
+    localStorage.clear();
     if (param[0] === "company") {
       navigate("/login/company");
     } else {
