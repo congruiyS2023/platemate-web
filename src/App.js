@@ -28,7 +28,7 @@ function App() {
               <Route path="/coupon-sent" element={<CouponSent />} />
               <Route path="/challenge-details" element={<ChallengeDetails />} />
               <Route path="/coupons" element={<Coupons />} />
-              <Route path="/join-challange" element={<JoinChallange />} />
+              <Route path="/join-challenge" element={<JoinChallange />} />
               <Route path="/join-challange-success" element={<JoinChallangeSuccess />} />
             </Routes>
           </div>
