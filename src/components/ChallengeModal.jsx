@@ -24,7 +24,7 @@ const ChallengeModal = () => {
 
     const handleJoin = () => {
       setIsModalOpen(false);
-      navigate('/join-challenge');
+      navigate('/reward/join-challenge');
     };
 
     const handleSkip = () => {
