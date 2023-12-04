@@ -1,6 +1,6 @@
 import { ConfigProvider } from "antd";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar";
 
 import theme from "./assets/theme.json";
 import "./App.css";
