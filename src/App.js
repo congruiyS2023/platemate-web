@@ -6,6 +6,13 @@ import theme from "./assets/theme.json";
 import "./App.css";
 import Home from "./routes/Home";
 import StyleGuide from "./routes/StyleGuide";
+import Menu from "./routes/Menu";
+import Reward from "./routes/Reward";
+import CouponSent from "./routes/CouponSent";
+import ChallengeDetails from "./routes/ChallengeDetails";
+import Coupons from "./routes/Coupons";
+import JoinChallange from "./routes/JoinChallange";
+import JoinChallangeSuccess from "./routes/JoinChallangeSuccess";
 
 function App() {
   return (
@@ -16,6 +23,13 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/style-guide" element={<StyleGuide />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/reward" element={<Reward />} />
+              <Route path="/coupon-sent" element={<CouponSent />} />
+              <Route path="/challenge-details" element={<ChallengeDetails />} />
+              <Route path="/coupons" element={<Coupons />} />
+              <Route path="/join-challenge" element={<JoinChallange />} />
+              <Route path="/join-challange-success" element={<JoinChallangeSuccess />} />
             </Routes>
           </div>
           <Navbar />
