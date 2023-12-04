@@ -7,6 +7,7 @@ import "./App.css";
 import Home from "./routes/Home";
 import StyleGuide from "./routes/StyleGuide";
 import Menu from "./routes/Menu";
+import RestaurantOwnerLogin from "./routes/RestaurantOwnerLogin";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/style-guide" element={<StyleGuide />} />
               <Route path="/menu" element={<Menu />} />
+              <Route path="/restaurant-owner-login" element={<RestaurantOwnerLogin />} />
             </Routes>
           </div>
           <Navbar />
