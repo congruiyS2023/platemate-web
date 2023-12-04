@@ -4,6 +4,8 @@ import Heading from "../components/Heading";
 import ChatMessage from "../components/ChatMessage";
 import { Flex } from "antd";
 import { CustomInputWithSubmit } from "../components/CustomInputs";
+import HeaderNav from "../components/HeaderNav";
+import { useNavigate } from "react-router-dom";
 
 function getMessages(name) {
     return [
@@ -22,6 +24,8 @@ export default function Chat() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const name = queryParams.get("name");
+
+    const navigate = useNavigate();
 
     const [messages, setMessages] = useState([]);
 
@@ -42,21 +46,31 @@ export default function Chat() {
     };
 
     return (
-        <Flex vertical className="p-4 h-full">
-            <Heading level={1} align="center" className="mb-2">
-                {name}
-            </Heading>
-            {messages.map((message) => (
-                <ChatMessage
-                    msg={message.msg}
-                    isSender={message.isSender}
-                ></ChatMessage>
-            ))}
-            <CustomInputWithSubmit
-                className="mt-auto"
-                placeholder="Message..."
-                onSubmit={handleSendMessage}
+        <Flex vertical className="h-full">
+            <HeaderNav
+                header="PlateMate"
+                showBackButton={true}
+                backButtonOnClick={() => {
+                    navigate("/menu");
+                }}
             />
+            <Flex vertical className="p-4 pt-0 h-full flex-col">
+                <Heading level={1} align="center" className="mb-2 mt-0">
+                    {name}
+                </Heading>
+                {messages.map((message, i) => (
+                    <ChatMessage
+                        key={i}
+                        msg={message.msg}
+                        isSender={message.isSender}
+                    ></ChatMessage>
+                ))}
+                <CustomInputWithSubmit
+                    className="mt-auto"
+                    placeholder="Message..."
+                    onSubmit={handleSendMessage}
+                />
+            </Flex>
         </Flex>
     );
 }
