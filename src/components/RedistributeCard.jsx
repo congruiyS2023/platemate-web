@@ -13,7 +13,7 @@ const RedistributeCard = ({
 }) => (
   <div className="border-solid border-primary h-40 w-80 flex bg-white rounded-lg overflow-hidden shadow-md">
     <div
-      className="flex bg-primary w-1/3  items-center justify-center"
+      className="flex bg-primary w-1/3 items-center justify-center"
       onClick={onClickRedistributeCard}
     >
       <InfoCircleOutlined className="text-3xl text-white" />
@@ -33,7 +33,9 @@ const RedistributeCard = ({
           Pick up by {props.time}
         </p>
         <p className="text-xs">
-          <span className="font-bold font-paragraph text-primary">{props.weight}</span>
+          <span className="font-bold font-paragraph text-primary">
+            {props.weight}
+          </span>
           <span className="text-xs text-black ml-1 font-paragraph">lb</span>
         </p>
       </div>

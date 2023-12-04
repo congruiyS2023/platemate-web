@@ -10,10 +10,14 @@ module.exports = {
     extend: {
       textColor: {
         primary: "#12664f",
+        warning: "#AE8E1C",
+        error: "#AF3800",
       },
       colors: {
         primary: "#12664f",
         midnight: "#3E4140",
+        warning: "#AE8E1C",
+        error: "#AF3800",
       },
     },
     safelist: [],
