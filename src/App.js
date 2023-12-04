@@ -6,6 +6,7 @@ import theme from "./assets/theme.json";
 import "./App.css";
 import Home from "./routes/Home";
 import StyleGuide from "./routes/StyleGuide";
+import UserHome from "./routes/UserHome";
 import Menu from "./routes/Menu";
 import Reward from "./routes/Reward";
 import CouponSent from "./routes/CouponSent";
@@ -24,16 +25,14 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/style-guide" element={<StyleGuide />} />
+              <Route path="/user-home" element={<UserHome />} />
               <Route path="/menu" element={<Menu />} />
               <Route path="/reward" element={<Reward />} />
-              <Route path="/coupon-sent" element={<CouponSent />} />
-              <Route path="/challenge-details" element={<ChallengeDetails />} />
-              <Route path="/coupons" element={<Coupons />} />
-              <Route path="/join-challenge" element={<JoinChallange />} />
-              <Route
-                path="/join-challange-success"
-                element={<JoinChallangeSuccess />}
-              />
+              <Route path="/reward/coupon-sent" element={<CouponSent />} />
+              <Route path="/reward/challenge-details" element={<ChallengeDetails />} />
+              <Route path="/reward/coupons" element={<Coupons />} />
+              <Route path="/user-home/join-challenge" element={<JoinChallange />} />
+              <Route path="/user-home/join-challange-success" element={<JoinChallangeSuccess />} />
               <Route path="/chat" element={<Chat />} />
             </Routes>
           </div>

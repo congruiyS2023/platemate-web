@@ -9,8 +9,8 @@ import Paragraph from "../components/Paragraph";
 const JoinChallangeSuccess = () => {
     const navigate = useNavigate();
 
-    const handleReturnToMenu = () => {
-        navigate('/menu', { state: { skipModal: true, fromJoinSuccess: true } });
+    const handleReturnToUserHome = () => {
+        navigate('/user-home', { state: { skipModal: true, fromJoinSuccess: true } });
     };
 
 
@@ -31,7 +31,7 @@ const JoinChallangeSuccess = () => {
             </Flex>
         </Flex> 
         <Flex vertical center className="px-20 py-20">
-            <CustomButton type="primary" onClick={handleReturnToMenu}>RETURN TO MENU</CustomButton>
+            <CustomButton type="primary" onClick={handleReturnToUserHome}>RETURN TO MENU</CustomButton>
         </Flex>
     </div>);
 };
