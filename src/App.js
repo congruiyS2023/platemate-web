@@ -14,6 +14,7 @@ import ChallengeDetails from "./routes/ChallengeDetails";
 import Coupons from "./routes/Coupons";
 import JoinChallange from "./routes/JoinChallange";
 import JoinChallangeSuccess from "./routes/JoinChallangeSuccess";
+import Chat from "./pages/chat";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               <Route path="/reward/coupons" element={<Coupons />} />
               <Route path="/user-home/join-challenge" element={<JoinChallange />} />
               <Route path="/user-home/join-challange-success" element={<JoinChallangeSuccess />} />
+              <Route path="/recycle/chat-with-recycle-companies" element={<Chat />} />
             </Routes>
           </div>
           <Navbar />
