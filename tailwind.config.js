@@ -13,6 +13,7 @@ module.exports = {
       },
       colors: {
         primary: "#12664f",
+        midnight: "#3E4140",
       },
     },
     safelist: [],

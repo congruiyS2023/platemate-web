@@ -264,7 +264,6 @@ const StyleGuide = () => {
         <Select
           className="font-paragraph w-60 text-left"
           placeholder="Select an option"
-          onChange={""}
           options={[
             { value: "beefRole", label: "Beef Roll" },
             { value: "candy", label: "Candy" },
