@@ -52,7 +52,7 @@ const HeaderNav = ({
       </Flex>
       {plusButton}
       {logOutButton}
-      <Divider className="font-bold" />
+      <Divider />
     </div>
   );
 };

@@ -399,8 +399,9 @@ const Menu = () => {
           showBackButton={true}
           backButtonOnClick={returnToMenu}
         />
-        <form onSubmit={handleSubmit}>
-          <div className="overflow-y-auto max-h-[80%] overflow-x-hidden">
+
+        <div className="overflow-y-auto max-h-[80%] overflow-x-hidden">
+          <form onSubmit={handleSubmit}>
             <Flex justify="flex-start" className="px-8 text-primary">
               <Heading level={2}>Name</Heading>
             </Flex>
@@ -508,8 +509,8 @@ const Menu = () => {
                 </CustomButton>
               </Flex>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </>
     );
   };
