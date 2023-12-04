@@ -16,44 +16,32 @@ import JoinChallangeSuccess from "./routes/JoinChallangeSuccess";
 import Chat from "./pages/chat";
 
 function App() {
-    return (
-        <Router>
-            <ConfigProvider theme={theme}>
-                <div className="flex flex-col h-screen">
-                    <div className="flex-grow overflow-auto pb-20">
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route
-                                path="/style-guide"
-                                element={<StyleGuide />}
-                            />
-                            <Route path="/menu" element={<Menu />} />
-                            <Route path="/reward" element={<Reward />} />
-                            <Route
-                                path="/coupon-sent"
-                                element={<CouponSent />}
-                            />
-                            <Route
-                                path="/challenge-details"
-                                element={<ChallengeDetails />}
-                            />
-                            <Route path="/coupons" element={<Coupons />} />
-                            <Route
-                                path="/join-challenge"
-                                element={<JoinChallange />}
-                            />
-                            <Route
-                                path="/join-challange-success"
-                                element={<JoinChallangeSuccess />}
-                            />
-                            <Route path="/chat" element={<Chat />} />
-                        </Routes>
-                    </div>
-                    <Navbar />
-                </div>
-            </ConfigProvider>
-        </Router>
-    );
+  return (
+    <Router>
+      <ConfigProvider theme={theme}>
+        <div className="flex flex-col h-screen">
+          <div className="flex-grow overflow-auto pb-20">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/style-guide" element={<StyleGuide />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/reward" element={<Reward />} />
+              <Route path="/coupon-sent" element={<CouponSent />} />
+              <Route path="/challenge-details" element={<ChallengeDetails />} />
+              <Route path="/coupons" element={<Coupons />} />
+              <Route path="/join-challenge" element={<JoinChallange />} />
+              <Route
+                path="/join-challange-success"
+                element={<JoinChallangeSuccess />}
+              />
+              <Route path="/chat" element={<Chat />} />
+            </Routes>
+          </div>
+          <Navbar />
+        </div>
+      </ConfigProvider>
+    </Router>
+  );
 }
 
 export default App;
