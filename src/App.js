@@ -33,7 +33,7 @@ function App() {
               <Route path="/reward/coupons" element={<Coupons />} />
               <Route path="/user-home/join-challenge" element={<JoinChallange />} />
               <Route path="/user-home/join-challange-success" element={<JoinChallangeSuccess />} />
-              <Route path="/chat" element={<Chat />} />
+              <Route path="/recycle/chat-with-recycle-companies" element={<Chat />} />
             </Routes>
           </div>
           <Navbar />
