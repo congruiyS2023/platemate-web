@@ -15,9 +15,9 @@ const Coupons = () => {
 
     const { TextArea } = Input;
     const [coupons, setCoupons] = useState([
-        { id: 1, description: '¥3 - within 15 days' },
-        { id: 2, description: '¥5 - buy $50 save $5' },
-        { id: 3, description: '¥20 - buy $150 save $20' }
+        { id: 1, description: '¥3 - above $30' },
+        { id: 2, description: '¥5 - above $50' },
+        { id: 3, description: '¥20 - above $150' }
     ]);
     const [showAddCoupon, setShowAddCoupon] = useState(false);
     const [newCouponTitle, setNewCouponTitle] = useState('');

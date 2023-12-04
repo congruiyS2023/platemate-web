@@ -5,6 +5,7 @@ import theme from "./assets/theme.json";
 import "./App.css";
 import Home from "./routes/Home";
 import StyleGuide from "./routes/StyleGuide";
+import UserHome from "./routes/UserHome";
 import Menu from "./routes/Menu";
 import Login from "./routes/Login";
 import Logout from "./routes/Logout";
@@ -14,6 +15,7 @@ import ChallengeDetails from "./routes/ChallengeDetails";
 import Coupons from "./routes/Coupons";
 import JoinChallange from "./routes/JoinChallange";
 import JoinChallangeSuccess from "./routes/JoinChallangeSuccess";
+import Chat from "./pages/chat";
 
 function App() {
   return (
@@ -24,17 +26,28 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/style-guide" element={<StyleGuide />} />
-              <Route path="/menu/" element={<Menu />} />
               <Route path="/login/:type" element={<Login />} />
               <Route path="/logout/*" element={<Logout />} />
+              <Route path="/user-home" element={<UserHome />} />
+              <Route path="/menu" element={<Menu />} />
               <Route path="/reward" element={<Reward />} />
-              <Route path="/coupon-sent" element={<CouponSent />} />
-              <Route path="/challenge-details" element={<ChallengeDetails />} />
-              <Route path="/coupons" element={<Coupons />} />
-              <Route path="/join-challenge" element={<JoinChallange />} />
+              <Route path="/reward/coupon-sent" element={<CouponSent />} />
               <Route
-                path="/join-challange-success"
+                path="/reward/challenge-details"
+                element={<ChallengeDetails />}
+              />
+              <Route path="/reward/coupons" element={<Coupons />} />
+              <Route
+                path="/user-home/join-challenge"
+                element={<JoinChallange />}
+              />
+              <Route
+                path="/user-home/join-challange-success"
                 element={<JoinChallangeSuccess />}
+              />
+              <Route
+                path="/recycle/chat-with-recycle-companies"
+                element={<Chat />}
               />
             </Routes>
           </div>
