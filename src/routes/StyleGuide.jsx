@@ -22,6 +22,7 @@ import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import OrderItemCard from "../components/OrderItemCard";
 import MenuItemDetailCard from "../components/MenuItemDetailCard";
 import MenuItemPreviewCard from "../components/MenuItemPreviewCard";
+import Navbar from "../components/Navbar";
 
 const StyleGuide = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -261,7 +262,6 @@ const StyleGuide = () => {
         <Select
           className="font-paragraph w-60 text-left"
           placeholder="Select an option"
-          onChange={""}
           options={[
             { value: "beefRole", label: "Beef Roll" },
             { value: "candy", label: "Candy" },
@@ -270,6 +270,7 @@ const StyleGuide = () => {
           ]}
         />
       </Flex>
+      <Navbar />
     </>
   );
 };

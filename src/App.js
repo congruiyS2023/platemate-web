@@ -1,13 +1,16 @@
 import { ConfigProvider } from "antd";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 
 import theme from "./assets/theme.json";
 import "./App.css";
 import Home from "./routes/Home";
 import StyleGuide from "./routes/StyleGuide";
+import Community from "./routes/Community";
+import RedistPost from "./routes/RedistPost";
 import UserHome from "./routes/UserHome";
 import Menu from "./routes/Menu";
+import Login from "./routes/Login";
+import Logout from "./routes/Logout";
 import Reward from "./routes/Reward";
 import CouponSent from "./routes/CouponSent";
 import ChallengeDetails from "./routes/ChallengeDetails";
@@ -30,7 +33,12 @@ function App() {
           <div className="flex-grow overflow-auto pb-20">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/community/new" element={<RedistPost />}/>
+              <Route path="/community/:id/edit" element={<RedistPost />}/>
               <Route path="/style-guide" element={<StyleGuide />} />
+              <Route path="/login/:type" element={<Login />} />
+              <Route path="/logout/*" element={<Logout />} />
               <Route path="/user-home" element={<UserHome />} />
               <Route path="/menu" element={<Menu />} />
               <Route path="/reward" element={<Reward />} />
@@ -45,10 +53,10 @@ function App() {
               <Route path="/recycle/chat-with-recycle-companies" element={<ChatWithRecycleCompanies />}/>
               <Route path="/recycle/chat-with-existing-recycle-company/d7e5e085-30d4-4160-b1ae-936b07eff71a" element={<Chat />} />
               <Route path="/recycle/recycle-history" element={<RecycleHistory />} />
-              <Route path="/recycle/edit-existing-recycle-order/d7e5e085-30d4-4160-b1ae-936b07eff71a" element={<ExistingOrderEditView />} />
+              <Route path="/recycle/edit-existing-recycle-order/d7e5e085-30d4-4160-b1ae-936b07eff71a" element={<ExistingOrderEditView />}
+              />
             </Routes>
           </div>
-          <Navbar />
         </div>
       </ConfigProvider>
     </Router>

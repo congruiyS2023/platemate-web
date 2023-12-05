@@ -3,6 +3,7 @@ import Heading from "./Heading";
 import CustomButton from "./CustomButton";
 import { RxArrowLeft, RxExit, RxPlusCircled } from "react-icons/rx";
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const HeaderNav = ({
   header,
@@ -12,8 +13,10 @@ const HeaderNav = ({
   plusButtonOnClick,
   showLogOutButton,
 }) => {
+  // Get current url path. e.g. localhost:3000/reward/abc will give /reward/abc
+  const param = useLocation().pathname;
   const logoutIcon = (
-    <NavLink to={"/"} className={"text-midnight"}>
+    <NavLink to={`/logout${param}`} className={"text-midnight"}>
       <RxExit className="scale-[2]" />
     </NavLink>
   );
@@ -43,7 +46,7 @@ const HeaderNav = ({
   ) : null;
 
   return (
-    <div className="sticky top-0 bg-white">
+    <div className="sticky top-0 bg-white z-10">
       {backButton}
       <Flex className="pt-4" justify="center">
         <Heading level={1} className="text-center">
