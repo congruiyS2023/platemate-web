@@ -5,6 +5,8 @@ import theme from "./assets/theme.json";
 import "./App.css";
 import Home from "./routes/Home";
 import StyleGuide from "./routes/StyleGuide";
+import Community from "./routes/Community";
+import RedistPost from "./routes/RedistPost";
 import UserHome from "./routes/UserHome";
 import Menu from "./routes/Menu";
 import Login from "./routes/Login";
@@ -25,6 +27,9 @@ function App() {
           <div className="flex-grow overflow-auto pb-20">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/community/new" element={<RedistPost />}/>
+              <Route path="/community/:id/edit" element={<RedistPost />}/>
               <Route path="/style-guide" element={<StyleGuide />} />
               <Route path="/login/:type" element={<Login />} />
               <Route path="/logout/*" element={<Logout />} />
