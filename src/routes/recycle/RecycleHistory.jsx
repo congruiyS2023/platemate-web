@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Paragraph from "../../components/Paragraph";
 
 import HeaderNav from "../../components/HeaderNav";
+import Navbar from "../../components/Navbar";
 import {
   LineChart,
   Line,
@@ -160,6 +161,7 @@ const CreateNewRecycleOrder = () => {
           scroll={{ y: 350 }}
         />
       </div>
+      <Navbar />
     </div>
   );
 };

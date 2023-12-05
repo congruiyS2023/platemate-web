@@ -4,6 +4,7 @@ import { Flex } from "antd";
 import Paragraph from "../../components/Paragraph";
 
 import HeaderNav from "../../components/HeaderNav";
+import Navbar from "../../components/Navbar";
 import RecycleOrderHistoryCard from "../../components/RecycleOrderHistoryCard";
 
 const CreateNewRecycleOrder = () => {
@@ -11,11 +12,13 @@ const CreateNewRecycleOrder = () => {
 
   const handleBackButtonOnClick = () => {
     navigate("/recycle");
-  }
+  };
 
   const handleExistingOrderCardClick = () => {
-    navigate("/recycle/chat-with-existing-recycle-company/d7e5e085-30d4-4160-b1ae-936b07eff71a");
-  }
+    navigate(
+      "/recycle/edit-existing-recycle-order/d7e5e085-30d4-4160-b1ae-936b07eff71a"
+    );
+  };
 
   return (
     <div>
@@ -24,12 +27,10 @@ const CreateNewRecycleOrder = () => {
         showBackButton={true}
         showLogOutButton={true}
         backButtonOnClick={handleBackButtonOnClick}
-
       />
-        <Paragraph className="mx-6">
-          You can edit or cancel the existing orders here. And you can also chat
-          with the companies taking your orders.
-        </Paragraph>
+      <Paragraph className="mx-6">
+        You can edit or cancel the existing orders here.
+      </Paragraph>
 
       <Flex justify="center">
         <Flex vertical>
@@ -56,6 +57,7 @@ const CreateNewRecycleOrder = () => {
           </Flex>
         </Flex>
       </Flex>
+      <Navbar />
     </div>
   );
 };

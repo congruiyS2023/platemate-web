@@ -24,6 +24,8 @@ import ExistingOrderEditView from "./routes/recycle/ExistingOrderEditView";
 import ChatWithRecycleCompanies from "./routes/recycle/ChatWithRecycleCompanies";
 import Chat from "./routes/recycle/Chat";
 import RecycleHistory from "./routes/recycle/RecycleHistory";
+import RecycleCompanyView from "./routes/recycle/RecycleCompanyView";
+import RecycleCompanyOrders from "./routes/recycle/RecycleCompanyOrders";
 
 function App() {
   return (
@@ -50,11 +52,12 @@ function App() {
               <Route path="/recycle" element={<Recycle />} />
               <Route path="/recycle/create-new-recycle-order" element={<CreateNewRecycleOrder />} />
               <Route path="/recycle/edit-existing-recycle-order" element={<EditExistingRecycleOrder />} />
+              <Route path="/recycle/edit-existing-recycle-order/d7e5e085-30d4-4160-b1ae-936b07eff71a" element={<ExistingOrderEditView />} />
               <Route path="/recycle/chat-with-recycle-companies" element={<ChatWithRecycleCompanies />}/>
-              <Route path="/recycle/chat-with-existing-recycle-company/d7e5e085-30d4-4160-b1ae-936b07eff71a" element={<Chat />} />
+              <Route path="/recycle/chat" element={<Chat />} />
               <Route path="/recycle/recycle-history" element={<RecycleHistory />} />
-              <Route path="/recycle/edit-existing-recycle-order/d7e5e085-30d4-4160-b1ae-936b07eff71a" element={<ExistingOrderEditView />}
-              />
+              <Route path="/recycle/recycle-company-view" element={<RecycleCompanyView />} />
+              <Route path="/recycle/recycle-company-orders" element={<RecycleCompanyOrders />} />
             </Routes>
           </div>
         </div>

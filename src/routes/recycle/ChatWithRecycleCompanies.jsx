@@ -4,6 +4,7 @@ import { Flex } from "antd";
 import Paragraph from "../../components/Paragraph";
 
 import HeaderNav from "../../components/HeaderNav";
+import Navbar from "../../components/Navbar";
 import ChatWithRecycleCompanyCard from "../../components/ChatWithRecycleCompanyCard";
 
 const ChatWithRecycleCompanies = () => {
@@ -13,15 +14,10 @@ const ChatWithRecycleCompanies = () => {
     navigate("/recycle");
   };
 
-  //   const handleChatCardClick = () => {
-  //     navigate(
-  //       "/recycle/chat-with-existing-recycle-company/d7e5e085-30d4-4160-b1ae-936b07eff71a"
-  //     );
-  //   };
   const handleChatCardClick = (companyName) => {
     navigate(
-      "/recycle/chat-with-existing-recycle-company/d7e5e085-30d4-4160-b1ae-936b07eff71a",
-      { state: { company: companyName } }
+      "/recycle/chat",
+      { state: { company: companyName, backUrl: "/recycle/chat-with-recycle-companies" } }
     );
   };
 
@@ -64,6 +60,7 @@ const ChatWithRecycleCompanies = () => {
           </Flex>
         </Flex>
       </Flex>
+      <Navbar />
     </div>
   );
 };

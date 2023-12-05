@@ -9,6 +9,7 @@ import { CustomCheckbox } from "../../components/CustomCheckbox";
 
 import CustomButton from "../../components/CustomButton";
 import HeaderNav from "../../components/HeaderNav";
+import Navbar from "../../components/Navbar";
 import { Slider } from "antd";
 
 const CreateNewRecycleOrder = () => {
@@ -33,9 +34,9 @@ const CreateNewRecycleOrder = () => {
     setCheckedStates({ ...checkedStates, [type]: e.target.checked });
   };
 
-  const [timeslot, setTimeslot] = useState('');
+  const [timeslot, setTimeslot] = useState("");
   const handleTimeslotChange = (value) => {
-    setTimeslot(value)
+    setTimeslot(value);
     setSelectedTimeslot(value);
   };
 
@@ -65,7 +66,7 @@ const CreateNewRecycleOrder = () => {
 
   const handleBackButtonOnClick = () => {
     navigate("/recycle");
-  }
+  };
   return (
     <>
       {createOrder === 0 ? (
@@ -160,7 +161,8 @@ const CreateNewRecycleOrder = () => {
               We have sent your request to recycle companies nearby.
             </Paragraph>
             <Paragraph>
-              Your food leftovers are expected to be picked up between {timeslot.replace(" - ", " and ")}.
+              Your food leftovers are expected to be picked up between{" "}
+              {timeslot.replace(" - ", " and ")}.
             </Paragraph>
           </div>
           <div className="text-center mt-12 w-full max-w-lg">
@@ -178,6 +180,7 @@ const CreateNewRecycleOrder = () => {
           </div>
         </div>
       )}
+      <Navbar />
     </>
   );
 };

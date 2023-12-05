@@ -10,6 +10,7 @@ import RecycleOrderHistoryCard from "../../components/RecycleOrderHistoryCard";
 
 import CustomButton from "../../components/CustomButton";
 import HeaderNav from "../../components/HeaderNav";
+import Navbar from "../../components/Navbar";
 import { Slider } from "antd";
 
 const ExistingOrderEditView = () => {
@@ -246,6 +247,7 @@ const ExistingOrderEditView = () => {
           </div>
         </div>
       )}
+      <Navbar />
     </>
   );
 };

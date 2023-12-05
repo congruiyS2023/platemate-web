@@ -4,6 +4,7 @@ import { Flex } from "antd";
 import Paragraph from "../../components/Paragraph";
 import RecycleOrderCard from "../../components/RecycleOrderCard";
 import HeaderNav from "../../components/HeaderNav";
+import Navbar from "../../components/Navbar";
 import {
   PlusCircleOutlined,
   ShoppingCartOutlined,
@@ -76,6 +77,7 @@ const Recycle = () => {
           </Flex>
         </Flex>
       </Flex>
+      <Navbar />
     </div>
   );
 };

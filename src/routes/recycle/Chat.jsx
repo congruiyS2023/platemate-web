@@ -6,6 +6,7 @@ import ChatMessage from "../../components/ChatMessage";
 import { CustomInputWithSubmit } from "../../components/CustomInputs";
 import HeaderNav from "../../components/HeaderNav";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar";
 
 function getMessages(name) {
   return [
@@ -22,7 +23,7 @@ function getMessages(name) {
 
 export default function Chat() {
   const location = useLocation();
-  const { company } = location.state || {};
+  const { company, backUrl } = location.state || {};
   const queryParams = new URLSearchParams(location.search);
   const name = queryParams.get("name");
 
@@ -31,8 +32,8 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    setMessages(getMessages(name));
-  }, [setMessages, name]);
+    setMessages(getMessages(company));
+  }, [setMessages, company]);
 
   const handleSendMessage = (msg) => {
     if (msg !== "") {
@@ -47,32 +48,35 @@ export default function Chat() {
   };
 
   return (
-    <Flex vertical className="h-full">
-      <HeaderNav
-        header={company}
-        showBackButton={true}
-        showLogOutButton={true}
-        backButtonOnClick={() => {
-          navigate("/recycle/chat-with-recycle-companies");
-        }}
-      />
-      <Flex vertical className="p-4 pt-0 h-full flex-col">
-        <Heading level={1} align="center" className="mb-2 mt-0">
-          {name}
-        </Heading>
-        {messages.map((message, i) => (
-          <ChatMessage
-            key={i}
-            msg={message.msg}
-            isSender={message.isSender}
-          ></ChatMessage>
-        ))}
-        <CustomInputWithSubmit
-          className="mt-auto"
-          placeholder="Message..."
-          onSubmit={handleSendMessage}
+    <>
+      <Flex vertical className="h-full">
+        <HeaderNav
+          header={company}
+          showBackButton={true}
+          showLogOutButton={true}
+          backButtonOnClick={() => {
+          navigate(backUrl);
+          }}
         />
+        <Flex vertical className="p-4 pt-0 h-full flex-col">
+          <Heading level={1} align="center" className="mb-2 mt-0">
+            {name}
+          </Heading>
+          {messages.map((message, i) => (
+            <ChatMessage
+              key={i}
+              msg={message.msg}
+              isSender={message.isSender}
+            ></ChatMessage>
+          ))}
+          <CustomInputWithSubmit
+            className="mt-auto"
+            placeholder="Message..."
+            onSubmit={handleSendMessage}
+          />
+        </Flex>
       </Flex>
-    </Flex>
+      <Navbar />
+    </>
   );
 }
