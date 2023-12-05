@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import {useLocation, useNavigate} from 'react-router-dom';
-import {Badge, Flex, Layout, Space, Table, Modal, Tag} from "antd";
+import {Badge, Flex, Layout, Space, Table, Modal, Alert} from "antd";
 import Heading from "../components/Heading";
 import {BookOutlined} from "@ant-design/icons";
 import OrderItemCard from "../components/OrderItemCard";
 import CustomButton from "../components/CustomButton";
 import ButtonText from "../components/ButtonText";
 import {CustomInput} from "../components/CustomInputs";
+import {isVisible} from "@testing-library/user-event/dist/utils";
 const { Content} = Layout;
 
 
@@ -109,11 +110,11 @@ const OrderSummaryPage = () => {
                     <Flex className="bg-gray-100 h-max" gap="small" vertical>
                         <Table columns={columns} dataSource={order.orderItems} size="small" />
                         <Flex justify="space-between" align="center" className="pb-2 px-2">
-                            {
-                                order.coupon !== "" ? (
-                                    <Tag className="font-heading" color="red" >{order.coupon}</Tag>
-                                ) : null
-                            }
+                            <Flex className={ !order.coupon ? "invisible" : "" }>
+                                <div className="rounded border-red-500 px-1 py-1 text-white bg-red-500">
+                                    {order.coupon}
+                                </div>
+                            </Flex>
                             <Flex className="font-heading">Total: ${order.totalPrice} + tax</Flex>
                         </Flex>
                     </Flex>

@@ -4,12 +4,16 @@ import {Badge, Flex, Layout, Modal} from "antd";
 import {ShoppingCartOutlined} from "@ant-design/icons";
 import MenuItemPreviewCard from "../components/MenuItemPreviewCard";
 import Heading from "../components/Heading";
+import ChallengeModal from "../components/ChallengeModal";
+import Link from "../components/Link";
 
 const { Header, Content} = Layout;
 
 const MenuItemsPage = () => {
     const navigate = useNavigate();
     const {state} = useLocation();
+    const fromJoinSuccess = state?.fromJoinSuccess;
+    let skipModal = true;
     const createNewOrder = (id) => {
         return {
             id: "PLATE00" + id,
@@ -21,6 +25,7 @@ const MenuItemsPage = () => {
     let allOrders = []
     let order = {};
     if (!state || !state.allOrders) {
+        skipModal = false;
         order = createNewOrder(1);
     } else if (!state.userOrder) {
         allOrders = state.allOrders;
@@ -44,10 +49,6 @@ const MenuItemsPage = () => {
         { name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
     ]
 
-    const onClickJoinChallenge = () => {
-        console.log("click join challenge");
-    }
-
     const onClickCart = () => {
         navigate('/user-home/order-summary', {state: {
             order: order,
@@ -63,9 +64,30 @@ const MenuItemsPage = () => {
         }});
     }
 
+    const handleJoin = () => {
+        navigate('/user-home/join-challenge');
+    }
+
+    const handleJoinSuccess = () => {
+        navigate('/user-home/join-challange-success');
+    }
+
     return (
         <Layout className="layout">
             <Content className="bg-white py-4">
+                <div className="py-2">
+                    {!skipModal && <ChallengeModal/>}
+                    {!fromJoinSuccess && (
+                        <Link onClick={handleJoin}>
+                            JOIN ZERO-WASTE CHALLENGE!
+                        </Link>
+                    )}
+                    {fromJoinSuccess && (
+                        <Link onClick={handleJoinSuccess}>
+                            YOU HAVE JOINED THE CHALLENGE!
+                        </Link>
+                    )}
+                </div>
                 <Flex className="px-4" vertical>
                     <Flex justify="space-between" align="center">
                         <Heading className="font-heading">MENU</Heading>

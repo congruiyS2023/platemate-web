@@ -25,7 +25,10 @@ const OrderConfirmationPage = () => {
                     title={<p className="font-heading text-primary">Your Order #{orderId} Has Been Sent</p>}
                 extra={
                     <div className="py-2">
-                        <a onClick={onClickOrderHistory} className="font-paragraph text-black">See Order History</a>
+                        <div className="py-2">
+                            <a onClick={onClickOrderHistory} className="font-bold font-paragraph underline text-black">See Order History</a>
+                        </div>
+
                         <Button onClick={onClickOrderMore} className="px-4 w-full h-10" type="primary">Order More</Button>
                     </div>
             }

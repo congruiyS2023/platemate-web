@@ -52,9 +52,13 @@ const MenuDetailPage = () => {
         navigate('/user-home', {state: {userOrder: userOrder, allOrders: allOrders}})
     }
 
+    const onBackButtonClick = () => {
+        navigate('/user-home', {state: {userOrder: userOrder, allOrders: allOrders}})
+    }
+
     return (
         <Layout className="layout">
-            <HeaderNav header="PlateMate" showBackButton={false} showLogOutButton={false} backButtonOnClick={true}></HeaderNav>
+            <HeaderNav header="PlateMate" showBackButton={true} backButtonOnClick={onBackButtonClick}></HeaderNav>
             <Content className="bg-white">
                 <Flex className="px-4" justify="flex-start" gap="small" vertical>
                     <Flex justify="space-between" align="center">
