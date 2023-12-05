@@ -1,11 +1,11 @@
-import React from "react";
 import dayjs from "dayjs";
+import React from "react";
 import theme from "../assets/theme.json";
 
 import {
-  PlusOutlined,
-  MinusOutlined,
   InfoCircleOutlined,
+  MinusOutlined,
+  PlusOutlined,
 } from "@ant-design/icons";
 import { Divider, Flex } from "antd";
 

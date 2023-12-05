@@ -1,10 +1,10 @@
 import { Flex, Layout } from "antd";
-import HeaderNav from "../components/HeaderNav"
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Caption from "../components/Caption";
+import HeaderNav from "../components/HeaderNav";
 import Paragraph from "../components/Paragraph";
 import RedistributeCard from "../components/RedistributeCard";
-import Caption from "../components/Caption";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 const Community = () => {
     const explanationText = "Share your excessive food to feed the community!";
@@ -21,7 +21,7 @@ const Community = () => {
             ingredients: "Apple, sugar, butter",
             status: "untouched",
             expirationDate: "2023-12-04",
-            quantity: "5",
+            quantity: 5,
             unit: "lbs",
             expired: false,
         },
@@ -31,7 +31,7 @@ const Community = () => {
             ingredients: "Banana, flour, eggs",
             status: "touched",
             expirationDate: "2023-11-10",
-            quantity: "2",
+            quantity: 2,
             unit: "lbs",
             expired: true
         },
@@ -41,13 +41,13 @@ const Community = () => {
             ingredients: "Carrot, sugar, cream cheese",
             status: "untouched",
             expirationDate: "2023-11-20",
-            quantity: "3",
+            quantity: 3,
             unit: "servings",
             expired: true
         }
     ];
 
-    const [posts] = useState(() => {
+    const [posts, setPosts] = useState(() => {
         const storedPosts = localStorage.getItem('redistributionPosts');
         return storedPosts ? JSON.parse(storedPosts) : examplePosts;
     });
@@ -66,6 +66,32 @@ const Community = () => {
         navigate(`/community/${id}/edit`);
     }
 
+    const handleIncrement = (id) => {
+        const newPosts = posts.map((post) => {
+            if (post.id === id) {
+                return {
+                    ...post,
+                    quantity: post.quantity + 1
+                }
+            }
+            return post;
+        });
+        setPosts(newPosts);
+    };
+
+    const handleDecrement = (id) => {
+        const newPosts = posts.map((post) => {
+            if (post.id === id) {
+                return {
+                    ...post,
+                    quantity: post.quantity - 1
+                }
+            }
+            return post;
+        });
+        setPosts(newPosts);
+    }
+
     return (
         <div>
             <HeaderNav header={"Sharing Board"} showPlusButton={true} plusButtonOnClick={handleNewPost} showLogOutButton={true} />
@@ -76,6 +102,8 @@ const Community = () => {
                     {existingPosts.map((post, _) => (
                         <RedistributeCard
                             onClickRedistributeCard={() => handleOnClickRedistributeCard(post.id)}
+                            onIncrement={() => handleIncrement(post.id)}
+                            onDecrement={() => handleDecrement(post.id)}
                             key={post.id}
                             name={post.name}
                             ingredients={post.ingredients}

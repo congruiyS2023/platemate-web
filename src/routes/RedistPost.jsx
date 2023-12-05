@@ -1,4 +1,4 @@
-import { InfoCircleFilled, ExclamationCircleFilled } from "@ant-design/icons";
+import { ExclamationCircleFilled, InfoCircleFilled } from "@ant-design/icons";
 import { Button, Col, DatePicker, Flex, Form, Input, InputNumber, Layout, Modal, Row, Select, Slider } from "antd";
 import dayjs from "dayjs";
 import { createContext, useEffect, useRef, useState } from "react";
@@ -10,22 +10,6 @@ import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
 
 const ModalContext = createContext(null);
-
-const modalStyle = (action) => {
-    if (action === "remove") {
-        return {
-            color: "#af3800",
-            type: "primary",
-            danger: true,
-        }
-    } else {
-        return {
-            color: "#12664f",
-            type: "primary",
-            danger: false,
-        }
-    }
-}
 
 const getModalConfig = (actionContext) => {
     return {
@@ -120,7 +104,6 @@ const RedistPost = () => {
     const [inputQuantity, setInputQuantity] = useState(() => {
         const initialPost = findInitialPost(posts);
         if (initialPost) {
-            console.log("initialPost quantity", initialPost.quantity);
             return initialPost.quantity;
         } else {
             return MIN_QUANTITY;
