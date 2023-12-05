@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Caption from "../components/Caption";
 import HeaderNav from "../components/HeaderNav";
 import Paragraph from "../components/Paragraph";
+import Navbar from "../components/Navbar";
 import RedistributeCard from "../components/RedistributeCard";
 
 const Community = () => {
@@ -126,6 +127,7 @@ const Community = () => {
                     ))}
                 </Flex>
             </Layout.Content>
+            <Navbar />
         </div>
     );
 };

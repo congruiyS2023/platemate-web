@@ -8,6 +8,7 @@ import { CustomInput } from "../components/CustomInputs";
 import HeaderNav from "../components/HeaderNav";
 import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
+import Navbar from "../components/Navbar";
 
 const ModalContext = createContext(null);
 
@@ -39,6 +40,7 @@ const getModalConfig = (actionContext) => {
         } : null,
     }
 }
+
 const SubmitButton = ({ form, ...props }) => {
     const [submittable, setSubmittable] = useState(false);
     const values = Form.useWatch([], form);
@@ -326,6 +328,7 @@ const RedistPost = () => {
                     </Form>
                 </Layout.Content>
             </ModalContext.Provider>
+            <Navbar />
         </div>
     );
 };

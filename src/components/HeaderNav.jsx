@@ -46,7 +46,7 @@ const HeaderNav = ({
   ) : null;
 
   return (
-    <div className="sticky top-0 bg-white">
+    <div className="sticky top-0 bg-white z-10">
       {backButton}
       <Flex className="pt-4" justify="center">
         <Heading level={1} className="text-center">
