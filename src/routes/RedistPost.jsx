@@ -23,18 +23,18 @@ const getModalConfig = (actionContext) => {
         centered: true,
         closable: true,
         icon: (
-            actionContext === "remove" ? (
+            actionContext === "end" ? (
                 <ExclamationCircleFilled style={{ color: "#af3800" }} />
             ) : (
                 <InfoCircleFilled style={{ color: "#12664f" }} />
             )
 
         ),
-        okButtonProps: actionContext === "remove" ? {
+        okButtonProps: actionContext === "end" ? {
             type: "primary",
             danger: true,
         } : null,
-        cancelButtonProps: actionContext === "remove" ? {
+        cancelButtonProps: actionContext === "end" ? {
             type: "default",
             danger: true,
         } : null,
@@ -131,7 +131,7 @@ const RedistPost = () => {
             async function confirmModal() {
                 const confirmed = await modal.confirm(getModalConfig(actionContextVal));
                 if (confirmed) {
-                    if (actionContextVal === "remove") {
+                    if (actionContextVal === "end") {
                         handleRemove();
                     } else {
                         form.submit();
@@ -182,7 +182,7 @@ const RedistPost = () => {
     };
 
     const handleRemove = () => {
-        setActionContextVal("remove");
+        setActionContextVal("end");
         const storedPosts = localStorage.getItem('redistributionPosts');
         const posts = storedPosts ? JSON.parse(storedPosts) : [];
         const updatedPosts = posts.map((p) => {
@@ -313,7 +313,7 @@ const RedistPost = () => {
                                         Update
                                     </Button>
                                     <Button className="w-full" type="primary" danger onClick={async () => {
-                                        setActionContextVal("remove");
+                                        setActionContextVal("end");
                                         const confirmed = await modal.confirm(getModalConfig(actionContextVal));
                                         if (confirmed) {
                                             handleRemove();
