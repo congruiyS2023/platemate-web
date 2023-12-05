@@ -31,21 +31,39 @@ export const CustomInputWithLabel = ({
   </Flex>
 );
 
-export const CustomInputWithSubmit = ({ className, placeholder, ...props }) => {
+export const CustomInputWithSubmit = ({
+  className,
+  placeholder,
+  onSubmit,
+  ...props
+}) => {
   const [inputValue, setInputValue] = useState("");
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
   return (
-      <Space.Compact className={`font-paragraph text-lg ${className}`}>
-        <CustomInput
-          placeholder={placeholder}
-          value={inputValue}
-          onChange={handleInputChange}
-        />
-        <CustomButton size="large" type="primary" disabled={!inputValue} onChange={""}>
-          <SendOutlined />
-        </CustomButton>
-      </Space.Compact>
+    <Space.Compact className={`font-paragraph text-lg ${className}`}>
+      <CustomInput
+        placeholder={placeholder}
+        value={inputValue}
+        onChange={handleInputChange}
+        onPressEnter={(e) => {
+          onSubmit(inputValue);
+          setInputValue("");
+        }}
+      />
+      <CustomButton
+        size="large"
+        type="primary"
+        disabled={!inputValue}
+        onChange={""}
+        onClick={() => {
+          onSubmit(inputValue);
+          setInputValue("");
+        }}
+      >
+        <SendOutlined />
+      </CustomButton>
+    </Space.Compact>
   );
 };

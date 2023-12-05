@@ -22,6 +22,7 @@ import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import OrderItemCard from "../components/OrderItemCard";
 import MenuItemDetailCard from "../components/MenuItemDetailCard";
 import MenuItemPreviewCard from "../components/MenuItemPreviewCard";
+import Navbar from "../components/Navbar";
 
 const StyleGuide = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -164,9 +165,6 @@ const StyleGuide = () => {
         </Flex>
         <Flex className="mb-4">
           <RedistributeCard
-            image={
-              "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"
-            }
             weight={weight}
             onIncrement={incrementWeight}
             onDecrement={decrementWeight}
@@ -272,6 +270,7 @@ const StyleGuide = () => {
           ]}
         />
       </Flex>
+      <Navbar />
     </>
   );
 };
