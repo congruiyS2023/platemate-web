@@ -6,6 +6,7 @@ module.exports = {
     fontFamily: {
       heading: ["Epilogue", "sans-serif"],
       paragraph: ["Barlow", "sans-serif"],
+      logo: ["Permanent Marker", "cursive"],
     },
     extend: {
       textColor: {

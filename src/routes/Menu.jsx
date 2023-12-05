@@ -7,6 +7,7 @@ import { CustomInput } from "../components/CustomInputs";
 import { PictureOutlined } from "@ant-design/icons";
 
 import HeaderNav from "../components/HeaderNav";
+import Navbar from "../components/Navbar";
 const { TextArea } = Input;
 
 const initialMenuItems = [
@@ -565,7 +566,12 @@ const Menu = () => {
     );
   };
 
-  return <>{renderContent()}</>;
+  return (
+    <>
+      {renderContent()}
+      <Navbar />
+    </>
+  );
 };
 
 export default Menu;
