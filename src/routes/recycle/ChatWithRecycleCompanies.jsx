@@ -16,9 +16,9 @@ const ChatWithRecycleCompanies = () => {
 
   const handleChatCardClick = (companyName) => {
     navigate(
-      "/recycle/chat",
-      { state: { company: companyName, backUrl: "/recycle/chat-with-recycle-companies" } }
-    );
+      "/recycle/chat?name=" + companyName,
+      { state: { backUrl: "/recycle/chat-with-recycle-companies" } }
+      );
   };
 
   return (

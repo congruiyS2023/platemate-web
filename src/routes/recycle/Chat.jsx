@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Flex } from "antd";
 import { useLocation } from "react-router-dom";
-import Heading from "../../components/Heading";
 import ChatMessage from "../../components/ChatMessage";
 import { CustomInputWithSubmit } from "../../components/CustomInputs";
 import HeaderNav from "../../components/HeaderNav";
@@ -23,7 +22,7 @@ function getMessages(name) {
 
 export default function Chat() {
   const location = useLocation();
-  const { company, backUrl } = location.state || {};
+  const { backUrl } = location.state || {};
   const queryParams = new URLSearchParams(location.search);
   const name = queryParams.get("name");
 
@@ -32,8 +31,8 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    setMessages(getMessages(company));
-  }, [setMessages, company]);
+    setMessages(getMessages(name));
+  }, [setMessages, name]);
 
   const handleSendMessage = (msg) => {
     if (msg !== "") {
@@ -51,7 +50,7 @@ export default function Chat() {
     <>
       <Flex vertical className="h-full">
         <HeaderNav
-          header={company}
+          header={name}
           showBackButton={true}
           showLogOutButton={true}
           backButtonOnClick={() => {
@@ -59,9 +58,6 @@ export default function Chat() {
           }}
         />
         <Flex vertical className="p-4 pt-0 h-full flex-col">
-          <Heading level={1} align="center" className="mb-2 mt-0">
-            {name}
-          </Heading>
           {messages.map((message, i) => (
             <ChatMessage
               key={i}

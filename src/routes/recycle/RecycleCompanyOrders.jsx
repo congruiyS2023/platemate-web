@@ -17,8 +17,8 @@ const RecycleCompanyOrders = () => {
 
   const handleChatButtonClick = (companyName) => {
     navigate(
-      "/recycle/chat",
-      { state: { company: companyName, backUrl: "/recycle/recycle-company-orders" } }
+        "/recycle/chat?name=" + companyName,
+      { state: { backUrl: "/recycle/recycle-company-orders" } }
     );
   };
 
@@ -57,24 +57,24 @@ const RecycleCompanyOrders = () => {
             <Flex vertical>
               <Flex className="mt-4">
                 <RecycleCompanyOrderCard
-                  name={"Recycle Order 1"}
-                  weight={"50"}
-                  type={"Partial Solid"}
-                  company={"Trattoria"}
-                  time={"11/12/2023 21:00"}
+                  name={"Recycle Order 4"}
+                  weight={"68"}
+                  type={"Liquid"}
+                  company={"Out-N-In"}
+                  time={"11/12/2023 22:00"}
                   onClickIgnore={showIgnoreModal}
-                  onClickChat={()=> handleChatButtonClick("Trattoria")}
+                  onClickChat={()=> handleChatButtonClick("Out-N-In")}
                   showButtons={true}
                   showAcceptButton={false}
                 />
               </Flex>
               <Flex className="mt-4">
                 <RecycleCompanyOrderCard
-                  name={"Recycle Order 2"}
-                  weight={"27"}
+                  name={"Recycle Order 5"}
+                  weight={"72"}
                   type={"Intact Solid"}
                   company={"Happy Ox"}
-                  time={"11/12/2023 20:00"}
+                  time={"11/12/2023 23:00"}
                   onClickIgnore={showIgnoreModal}
                   onClickChat={()=> handleChatButtonClick("Happy Ox")}
                   showButtons={true}

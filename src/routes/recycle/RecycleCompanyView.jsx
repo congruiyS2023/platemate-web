@@ -14,8 +14,8 @@ const RecycleCompanyView = () => {
 
   const handleChatButtonClick = (companyName) => {
     navigate(
-      "/recycle/chat",
-      { state: { company: companyName, backUrl: "/recycle/recycle-company-view" } }
+      "/recycle/chat?name=" + companyName,
+      { state: { backUrl: "/recycle/recycle-company-view" } }
     );
   };
 
@@ -48,11 +48,11 @@ const RecycleCompanyView = () => {
     setIsIgnoreModalOpen(false);
   };
 
-  const [recycleCompanyState, setRecycleCompanyState] = useState(0);
+  // const [recycleCompanyState, setRecycleCompanyState] = useState(0);
 
   return (
     <>
-      {recycleCompanyState === 0 && (
+      {/* {recycleCompanyState === 0 && ( */}
         <>
           <HeaderNav
             header="Recycle Order Requests"
@@ -85,11 +85,11 @@ const RecycleCompanyView = () => {
                   name={"Recycle Order 2"}
                   weight={"27"}
                   type={"Intact Solid"}
-                  company={"Happy Ox"}
+                  company={"Mifen 404"}
                   time={"11/12/2023 20:00"}
                   onClickAccept={showAcceptModal}
                   onClickIgnore={showIgnoreModal}
-                  onClickChat={()=> handleChatButtonClick("Happy Ox")}
+                  onClickChat={()=> handleChatButtonClick("Mifen 404")}
                   showButtons={true}
                   showAcceptButton={true}
                 />
@@ -161,7 +161,7 @@ const RecycleCompanyView = () => {
             />
           </Modal>
         </>
-      )}
+      {/* )} */}
 
       {/* {recycleCompanyState === 1 && <></>}
       {recycleCompanyState === 2 && <></>} */}
