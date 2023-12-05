@@ -90,7 +90,7 @@ const Coupons = () => {
               onChange={(e) => setNewCouponDescription(e.target.value)}
             />
           </Flex>
-          <Flex vertical center className="px-20 py-12">
+          <Flex vertical className="px-20 py-12">
             <CustomButton
               type="primary"
               onClick={handleAddCoupon}
@@ -118,7 +118,7 @@ const Coupons = () => {
                 size="small"
                 className="my-2"
               >
-                <Flex horizontal className="justify-between">
+                <Flex className="justify-between">
                   <ButtonText>{coupon.description}</ButtonText>
                   <CloseOutlined onClick={() => handleDelete(coupon.id)} />
                 </Flex>

@@ -68,7 +68,7 @@ const Reward = () => {
             onChange={handlePhoneNumberChange}
           />
           <Heading level={2}>Choose a Coupon</Heading>
-          <Flex horizontal justify="space-bewteen">
+          <Flex justify="space-bewteen">
             <Select
               className="font-paragraph w-full h-10"
               placeholder="Select one coupon option"
@@ -85,7 +85,7 @@ const Reward = () => {
           <Link onClick={handleManageCoupons}>MANAGE YOUR COUPON OPTIONS</Link>
         </Flex>
       </Flex>
-      <Flex vertical center className="px-20 py-12">
+      <Flex vertical className="px-20 py-12">
         <CustomButton
           type="primary"
           onClick={handleSendCoupon}

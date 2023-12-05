@@ -46,7 +46,7 @@ const ChallengeDetails = () => {
           Make a difference with PlateMate - save food together!
         </Paragraph>
       </Flex>
-      <Flex vertical center className="px-20 py-8">
+      <Flex vertical className="px-20 py-8">
         <CustomButton type="primary" onClick={handleLetsDoIt}>
           Let's do it!
         </CustomButton>

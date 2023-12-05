@@ -58,7 +58,7 @@ const JoinChallange = () => {
           $30.
         </Caption>
       </Flex>
-      <Flex vertical center className="px-20 py-4">
+      <Flex vertical className="px-20 py-4">
         <CustomButton
           type="primary"
           onClick={handleJoin}
