@@ -31,7 +31,7 @@ const JoinChallangeSuccess = () => {
           </Heading>
         </Flex>
       </Flex>
-      <Flex vertical center className="px-20 py-20">
+      <Flex vertical className="px-20 py-20">
         <CustomButton type="primary" onClick={handleReturnToUserHome}>
           RETURN TO MENU
         </CustomButton>
