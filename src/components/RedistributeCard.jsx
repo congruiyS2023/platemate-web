@@ -1,4 +1,7 @@
 import React from "react";
+import dayjs from "dayjs";
+import theme from "../assets/theme.json";
+
 import {
   PlusOutlined,
   MinusOutlined,
@@ -32,7 +35,7 @@ const RedistributeCard = ({
             {props.status}
           </p>
           <p className="text-sm leading-none text-black font-paragraph">
-            Pickup By {props.expirationDate}
+            Pickup By {dayjs(props.expirationDate).format(theme.dateFormat)}
           </p>
           <p className="text-xs space-x-6 mb-1">
             <span className="font-bold text-lg font-paragraph text-primary">{props.quantity}</span>
@@ -61,18 +64,18 @@ const RedistributeCard = ({
         </div>
         <div className="flex flex-col w-64 mt-2">
           <div className="mx-3" onClick={onClickRedistributeCard}>
-            <span className="text-primary font-bold text-lg font-heading">
+            <span className="text-primary font-bold text-lg font-heading capitalize">
               {props.name}
             </span>
             <p className="my-2 text-base text-primary font-paragraph">
               {props.ingredients}
             </p>
             <Flex justify="space-between">
-              <p className="mt-1 text-sm leading-none text-black font-paragraph">
+              <p className="mt-1 text-sm leading-none text-black font-paragraph capitalize">
                 {props.status}
               </p>
               <p className="mt-1 text-sm leading-none text-black font-paragraph">
-                Best By {props.expirationDate}
+                Best By {dayjs(props.expirationDate).format(theme.dateFormat)}
               </p>
             </Flex>
 
