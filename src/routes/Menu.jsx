@@ -538,7 +538,7 @@ const Menu = () => {
                         item.isDisabled ? "border-dotted" : "border-solid"
                       } border-2 border-primary w-40`}
                       name={item.name}
-                      price={"$" + item.price}
+                      price={item.price}
                       image={item.image}
                     />
                   </div>
