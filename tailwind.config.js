@@ -20,6 +20,10 @@ module.exports = {
         warning: "#AE8E1C",
         error: "#AF3800",
       },
+      width: {
+        '3/10': '30%',
+        '88':'22rem'
+      }
     },
     safelist: [],
   },

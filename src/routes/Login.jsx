@@ -41,7 +41,7 @@ const Login = () => {
     if (userType === "restaurant") {
       navigate("/community");
     } else {
-      navigate("/company");
+      navigate("/recycle/recycle-company-view");
     }
   };
 
