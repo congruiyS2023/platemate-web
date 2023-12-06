@@ -4,10 +4,10 @@ import { Card } from 'antd';
 const MenuItemDetailCard = ({ ...props }) => (
     <Card
         cover={
-            <img className="max-h-64"
-                alt="example"
-                src={props.image}
-            />
+            <div
+            className="bg-cover bg-center h-64"
+            style={{ backgroundImage: `url(${props.image})` }}>
+          </div>
         }
         className="border-2 border-solid border-primary w-full"
     >

@@ -15,7 +15,7 @@ const RecycleCompanyView = () => {
   const handleChatButtonClick = (companyName) => {
     navigate(
       "/recycle/chat?name=" + companyName,
-      { state: { backUrl: "/recycle/recycle-company-view" } }
+      { state: { backUrl: "/recycle/recycle-company-view", pov: "c2o" } }
     );
   };
 

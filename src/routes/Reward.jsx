@@ -40,7 +40,7 @@ const Reward = () => {
   return (
     <div>
       <HeaderNav
-        header="REWARD"
+        header="Reward"
         showBackButton={false}
         showLogOutButton={true}
       />
