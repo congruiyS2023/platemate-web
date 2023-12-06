@@ -60,24 +60,24 @@ const Coupons = () => {
       {showAddCoupon ? (
         <div>
           <HeaderNav
-            header="COUPONS"
+            header="Add a Coupon"
             showBackButton={true}
             showLogOutButton={true}
             backButtonOnClick={handleBackCoupon}
           />
           <Flex vertical className="px-8">
-            <Heading level={1}>ADD A COUPON</Heading>
+            {/* <Heading level={1}>ADD A COUPON</Heading> */}
             <Heading level={2}>coupon title</Heading>
             <CustomInput
               className="w-full h-10"
-              placeholder="Enter coupon name"
+              placeholder="e.g. $3 - above $30"
               value={newCouponTitle}
               onChange={(e) => setNewCouponTitle(e.target.value)}
             />
             <Heading level={2}>coupon amount (in $)</Heading>
             <CustomInput
               className="w-full h-10"
-              placeholder="Enter coupon amount"
+              placeholder="0 - 1000"
               value={newCouponAmount}
               onChange={(e) => setNewCouponAmount(e.target.value)}
             />
@@ -103,14 +103,14 @@ const Coupons = () => {
       ) : (
         <div>
           <HeaderNav
-            header="COUPONS"
+            header="Manage Coupons"
             showBackButton={true}
             showLogOutButton={true}
             backButtonOnClick={handleBackReward}
           />
           <Flex vertical className="px-8">
-            <Heading level={1}>MANAGE COUPONS</Heading>
-            <Heading level={2}>current coupons</Heading>
+            <Heading level={1}>CURRENT COUPONS</Heading>
+            {/* <Heading level={2}>current coupons</Heading> */}
             {coupons.map((coupon) => (
               <Card
                 key={coupon.id}

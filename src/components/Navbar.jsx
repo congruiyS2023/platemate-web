@@ -20,8 +20,8 @@ const Navbar = () => {
 
   const menuItemClassName = (isActive, route) => {
     const baseClasses = "flex flex-col items-center justify-center py-2 px-1 w-full text-xs text-gray-700 no-underline";
-    const hoverClasses = "hover:text-primary hover:bg-gray-100";
-    const activeClasses = "text-primary bg-gray-100";
+    const hoverClasses = "hover:text-primary hover:bg-primary hover:bg-opacity-10";
+    const activeClasses = "text-primary bg-primary bg-opacity-10";
     const responsiveClasses = "sm:px-4 sm:text-sm";
   
     return `${baseClasses} ${hoverClasses} ${isActive || shouldHighlight(route) ? activeClasses : ''} ${responsiveClasses}`;
@@ -65,7 +65,7 @@ const Navbar = () => {
                 className={({ isActive }) => menuItemClassName(isActive, '/reward')}
               >
               <RiCoupon3Fill className="h-6 w-6" />
-              <span className='font-paragraph'>Reward</span>
+              <span className='font-paragraph'>Coupons</span>
             </NavLink>
           </li>
         </ul>
