@@ -19,9 +19,11 @@ const ExistingOrderEditView = () => {
   const [inputValue, setInputValue] = useState(68);
   const [checkedStates, setCheckedStates] = useState({
     intactSolid: false,
-    partialSolid: true,
+    partialSolid: false,
     liquid: false,
   });
+  const [timeslot, setTimeslot] = useState();
+
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -59,7 +61,6 @@ const ExistingOrderEditView = () => {
     setCheckedStates({ ...checkedStates, [type]: e.target.checked });
   };
 
-  const [timeslot, setTimeslot] = useState("21:00 - 22:00");
   const handleTimeslotChange = (value) => {
     setTimeslot(value);
   };
