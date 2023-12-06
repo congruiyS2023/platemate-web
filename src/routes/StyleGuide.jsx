@@ -52,7 +52,7 @@ const StyleGuide = () => {
 
   return (
     <>
-      <div className="pt-4">
+      <div className="pt-4 text-center">
         <Heading level={1}>PlateMate Style Guide</Heading>
       </div>
       <Divider />

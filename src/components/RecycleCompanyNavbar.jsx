@@ -1,13 +1,11 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { RiCommunityFill } from "react-icons/ri";
 import { FaRecycle } from "react-icons/fa";
-import { MdOutlineRestaurantMenu } from "react-icons/md";
-import { RiCoupon3Fill } from "react-icons/ri";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 
-const Navbar = () => {
+const RecycleCompanyNavbar = () => {
   const location = useLocation();
 
   if (location.pathname.startsWith('/user-home')) {
@@ -34,38 +32,20 @@ const Navbar = () => {
         <ul className="flex justify-between items-center list-none p-0 m-0">
           <li className="flex-1">
           <NavLink 
-              to="/community"
-              className={({ isActive }) => menuItemClassName(isActive, '/community')}
+              to="/recycle/recycle-company-view"
+              className={({ isActive }) => menuItemClassName(isActive, '/recycle/recycle-company-view')}
             >
-              <RiCommunityFill className="h-6 w-6" />
-              <span className='font-paragraph'>Community</span>
-            </NavLink>
-          </li>
-          <li className="flex-1">
-              <NavLink 
-                to="/recycle"
-                className={({ isActive }) => menuItemClassName(isActive, '/recycle')}
-              >
               <FaRecycle className="h-6 w-6" />
-              <span className='font-paragraph'>Recycle</span>
+              <span className='font-paragraph'>Orders Feed</span>
             </NavLink>
           </li>
           <li className="flex-1">
               <NavLink 
-                to="/menu"
-                className={({ isActive }) => menuItemClassName(isActive, '/menu')}
+                to="/recycle/recycle-company-orders"
+                className={({ isActive }) => menuItemClassName(isActive, '/recycle/recycle-company-orders')}
               >
-              <MdOutlineRestaurantMenu className="h-6 w-6" />
-              <span className='font-paragraph'>Menu</span>
-            </NavLink>
-          </li>
-          <li className="flex-1">
-              <NavLink 
-                to="/reward"
-                className={({ isActive }) => menuItemClassName(isActive, '/reward')}
-              >
-              <RiCoupon3Fill className="h-6 w-6" />
-              <span className='font-paragraph'>Reward</span>
+              <FaShoppingCart className="h-6 w-6" />
+              <span className='font-paragraph'>My Orders</span>
             </NavLink>
           </li>
         </ul>
@@ -74,4 +54,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default RecycleCompanyNavbar;

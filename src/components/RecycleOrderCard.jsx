@@ -1,22 +1,36 @@
 import React from "react";
 import { PlusCircleOutlined, RightOutlined } from "@ant-design/icons";
+import Caption from "../components/Caption";
 
-const RecycleOrderCard = ({ onClickCreateRecycleOrderCard, ...props }) => (
+
+const RecycleOrderCard = ({
+  className,
+  icon: CustomIcon = PlusCircleOutlined,
+  title  = "Card title",
+  description  = "Card description", 
+  onClickCreateRecycleOrderCard,
+  ...props
+}) => (
   <div
-    className="border-solid border-primary h-24 w-80 flex bg-white rounded-lg overflow-hidden shadow-md"
+    className={`border-solid border-primary h-24 w-88 flex bg-white rounded-lg overflow-hidden shadow-md ${className}`}
     onClick={onClickCreateRecycleOrderCard}
+    {...props}
   >
-    <div className="flex bg-primary w-1/3 items-center justify-center">
-      <PlusCircleOutlined className="text-3xl text-white" />
+    <div className="flex bg-primary w-3/10 items-center justify-center">
+      <CustomIcon className="text-3xl text-white" />
     </div>
-    <div className="flex flex-col w-48">
+    <div className="flex flex-col w-56">
       <div className="mx-3 mt-2">
-        <span className="text-primary font-bold font-heading text-lg whitespace-nowrap">New Recycle Order</span>
-        <p className="text-xs text-black font-paragraph">Create a new recycle order here!</p>
+        <span className="text-primary font-bold font-heading text-base whitespace-wrap">
+          {title}
+        </span>
+        <Caption className="text-s">
+          {description}
+        </Caption>
       </div>
     </div>
     <div className="flex flex-col items-center justify-center mr-2">
-      <RightOutlined className="text-2xl text-primary" />
+      <RightOutlined className="text-xl text-primary" />
     </div>
   </div>
 );
