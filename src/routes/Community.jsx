@@ -85,7 +85,7 @@ const Community = () => {
             if (post.id === id) {
                 return {
                     ...post,
-                    quantity: post.quantity - 1
+                    quantity: Math.max(post.quantity - 1, 0)
                 }
             }
             return post;
