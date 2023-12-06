@@ -99,22 +99,7 @@ const Menu = () => {
 
   useEffect(() => {
     localStorage.setItem("AllItems", JSON.stringify(menuItems));
-    // localStorage.removeItem("AllItems");
   }, [menuItems]);
-
-  useEffect(() => {}, [nameValue]);
-
-  useEffect(() => {}, [priceValue]);
-
-  useEffect(() => {}, [descriptionValue]);
-
-  useEffect(() => {}, [image]);
-
-  useEffect(() => {}, [selectedButtons]);
-
-  useEffect(() => {}, [disableValue]);
-
-  useEffect(() => {}, [nextItemId]);
 
   const resetValues = () => {
     setIdValue();
@@ -160,7 +145,7 @@ const Menu = () => {
     };
     setMenuItems([...menuItems, newItem]);
     localStorage.setItem("AllItems", JSON.stringify(menuItems));
-    setNextItemId((prevId) => prevId + 1);
+    setNextItemId(nextItemId + 1);
     returnToMenu();
   };
 
@@ -225,7 +210,7 @@ const Menu = () => {
           </Flex>
           <Flex justify="center" align="center">
             <p className="text-3xl text-black font-extrabold">
-              We have Modify Your Dish
+              We have Modified Your Dish
             </p>
           </Flex>
           <Flex justify="center" align="center">

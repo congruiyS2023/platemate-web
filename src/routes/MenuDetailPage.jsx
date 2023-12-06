@@ -49,6 +49,7 @@ const MenuDetailPage = () => {
     const onAddToOrderClick = () => {
         let pricePerItem = menuItem.portionOptions[pendingOrder.size]
         //TODO: sanity check potion selection & amount
+        pendingOrder["key"] = menuItem.key;
         userOrder.orderItems.push(pendingOrder)
         userOrder.totalPrice += pendingOrder.count * pricePerItem;
         userOrder.totalCount += pendingOrder.count

@@ -19,7 +19,8 @@ const MenuItemsPage = () => {
             id: "PLATE00" + id,
             orderItems: [],
             totalPrice: 0,
-            totalCount: 0
+            totalCount: 0,
+            key: id,
         }
     }
     let allOrders = []

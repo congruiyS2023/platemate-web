@@ -29,7 +29,7 @@ const CouponSent = () => {
           </Heading>
         </Flex>
       </Flex>
-      <Flex vertical center className="px-20">
+      <Flex vertical align="center" className="px-20">
         <CustomButton type="primary" onClick={handleSendAnotherCoupon}>
           SEND ANOTHER COUPON
         </CustomButton>
