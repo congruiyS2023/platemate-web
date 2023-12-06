@@ -11,7 +11,7 @@ const OrderConfirmationPage = () => {
     const allOrders = state.allOrders;
 
     const onClickOrderMore = () => {
-        navigate('/user-home/user-home', {state: {allOrders: allOrders}});
+        navigate('/user-home', {state: {allOrders: allOrders}});
     }
 
     const onClickOrderHistory = () => {

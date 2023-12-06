@@ -39,14 +39,14 @@ const MenuItemsPage = () => {
     }
 
     const menu = [
-        { name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
-        { name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
-        { name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
-        { name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
-        { name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
-        { name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
-        { name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
-        { name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
+        { key: 1, name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
+        { key: 2, name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
+        { key: 3, name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
+        { key: 4, name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
+        { key: 5, name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
+        { key: 6, name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
+        { key: 7, name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
+        { key: 8, name: "HASS OMELETE", price: 22, portionOptions: { small: 22, medium: 25, large: 30}, description: "Bacon, avacado, monterey jack, pico de gallo, mild cheddar", image: "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"},
     ]
 
     const onClickCart = () => {
@@ -97,7 +97,7 @@ const MenuItemsPage = () => {
                     </Flex>
                     <Flex className="grid grid-cols-2 gap-4" justify='space-between' align='flex-start' gap="middle" vertical>
                         {Array.from({ length: menu.length }).map((_, i) => (
-                            <div>
+                            <div key={i}>
                                 <MenuItemPreviewCard onClickMenuItem={() => onClickMenuItem(menu[i])}  name={menu[i]["name"]} price={menu[0]["price"]} description={menu[i]["description"]} image={menu[i]["image"]}></MenuItemPreviewCard>
                             </div>
                         ))}
