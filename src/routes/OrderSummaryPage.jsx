@@ -1,19 +1,20 @@
 import React, {useState} from "react";
 import {useLocation, useNavigate} from 'react-router-dom';
-import {Badge, Flex, Layout, Space, Table, Modal, Alert} from "antd";
+import {Badge, Flex, Layout, Space, Table, Modal} from "antd";
 import Heading from "../components/Heading";
 import {BookOutlined} from "@ant-design/icons";
 import OrderItemCard from "../components/OrderItemCard";
 import CustomButton from "../components/CustomButton";
 import ButtonText from "../components/ButtonText";
 import {CustomInput} from "../components/CustomInputs";
-import {isVisible} from "@testing-library/user-event/dist/utils";
 const { Content} = Layout;
 
 
 const OrderSummaryPage = () => {
     const navigate = useNavigate();
     const {state} = useLocation();
+    const fromJoinSuccess = state?.fromJoinSuccess;
+    const skipModal = state?.skipModal;
     const allOrders = state.allOrders;
     const order = state.order;
     let coupon = "";
@@ -69,13 +70,17 @@ const OrderSummaryPage = () => {
     }
 
     const onMenuClick = () => {
-        navigate('/user-home', {state: {userOrder: order}});
+        navigate('/user-home', {state: {userOrder: order, fromJoinSuccess: fromJoinSuccess, skipModal: skipModal}});
     }
 
     const onClickPlaceOrder = () => {
         allOrders.push(order);
         navigate('/user-home/order-confirmation', {state: {
-            orderId: order.id, allOrders: allOrders}});
+            orderId: order.id,
+            allOrders: allOrders,
+            fromJoinSuccess: fromJoinSuccess,
+            skipModal: skipModal
+        }});
     }
 
     return (

@@ -7,15 +7,17 @@ import {useLocation, useNavigate} from "react-router-dom";
 const OrderConfirmationPage = () => {
     const navigate = useNavigate();
     const {state} = useLocation();
+    const fromJoinSuccess = state?.fromJoinSuccess;
+    const skipModal = state?.skipModal;
     const orderId = state.orderId;
     const allOrders = state.allOrders;
 
     const onClickOrderMore = () => {
-        navigate('/user-home', {state: {allOrders: allOrders}});
+        navigate('/user-home', {state: {allOrders: allOrders, fromJoinSuccess: fromJoinSuccess, skipModal: skipModal}});
     }
 
     const onClickOrderHistory = () => {
-        navigate('/user-home/order-history', {state: {allOrders: allOrders}});
+        navigate('/user-home/order-history', {state: {allOrders: allOrders, fromJoinSuccess: fromJoinSuccess, skipModal: skipModal}});
     }
 
     return (

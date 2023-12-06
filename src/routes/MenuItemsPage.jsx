@@ -1,19 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import {useLocation, useNavigate} from 'react-router-dom';
-import {Badge, Flex, Layout, Modal} from "antd";
+import {Badge, Flex, Layout} from "antd";
 import {ShoppingCartOutlined} from "@ant-design/icons";
 import MenuItemPreviewCard from "../components/MenuItemPreviewCard";
 import Heading from "../components/Heading";
 import ChallengeModal from "../components/ChallengeModal";
 import Link from "../components/Link";
 
-const { Header, Content} = Layout;
+const { Content} = Layout;
 
 const MenuItemsPage = () => {
     const navigate = useNavigate();
     const {state} = useLocation();
     const fromJoinSuccess = state?.fromJoinSuccess;
-    let skipModal = true;
+    const skipModal = state?.skipModal;
     const createNewOrder = (id) => {
         return {
             id: "PLATE00" + id,
@@ -25,7 +25,6 @@ const MenuItemsPage = () => {
     let allOrders = []
     let order = {};
     if (!state || !state.allOrders) {
-        skipModal = false;
         order = createNewOrder(1);
     } else if (!state.userOrder) {
         allOrders = state.allOrders;
@@ -52,7 +51,9 @@ const MenuItemsPage = () => {
     const onClickCart = () => {
         navigate('/user-home/order-summary', {state: {
             order: order,
-            allOrders: allOrders
+            allOrders: allOrders,
+            fromJoinSuccess: fromJoinSuccess,
+            skipModal: skipModal
         }})
     }
 
@@ -60,7 +61,9 @@ const MenuItemsPage = () => {
         navigate('/user-home/menu-detail', {state: {
             userOrder: order,
             menuItem: menuItem,
-            allOrders: allOrders
+            allOrders: allOrders,
+            fromJoinSuccess: fromJoinSuccess,
+            skipModal: skipModal
         }});
     }
 

@@ -12,6 +12,8 @@ const { Content} = Layout;
 const MenuDetailPage = () => {
     const navigate = useNavigate();
     const {state} = useLocation();
+    const fromJoinSuccess = state?.fromJoinSuccess;
+    const skipModal = state?.skipModal;
     const allOrders = state.allOrders;
     const userOrder = state.userOrder;
     const menuItem = state.menuItem;
@@ -30,7 +32,9 @@ const MenuDetailPage = () => {
     const onClickCart = () => {
         navigate('/user-home/order-summary', {state: {
                 order: userOrder,
-                allOrders: allOrders
+                allOrders: allOrders,
+                fromJoinSuccess: fromJoinSuccess,
+                skipModal: skipModal
         }})
     }
 
@@ -49,11 +53,11 @@ const MenuDetailPage = () => {
         userOrder.totalPrice += pendingOrder.count * pricePerItem;
         userOrder.totalCount += pendingOrder.count
 
-        navigate('/user-home', {state: {userOrder: userOrder, allOrders: allOrders}})
+        navigate('/user-home', {state: {userOrder: userOrder, allOrders: allOrders, fromJoinSuccess: fromJoinSuccess, skipModal: skipModal}})
     }
 
     const onBackButtonClick = () => {
-        navigate('/user-home', {state: {userOrder: userOrder, allOrders: allOrders}})
+        navigate('/user-home', {state: {userOrder: userOrder, allOrders: allOrders, fromJoinSuccess: fromJoinSuccess, skipModal: skipModal}})
     }
 
     return (

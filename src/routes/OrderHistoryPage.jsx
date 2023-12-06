@@ -9,10 +9,16 @@ const { Content} = Layout;
 const OrderHistoryPage = () => {
     const navigate = useNavigate();
     const {state} = useLocation();
+    const fromJoinSuccess = state?.fromJoinSuccess;
+    const skipModal = state?.skipModal;
     const allOrders = state.allOrders;
 
     const onClickOrderMore = () => {
-        navigate('/user-home', {state: {allOrders: allOrders}});
+        navigate('/user-home', {state: {
+            allOrders: allOrders,
+            fromJoinSuccess: fromJoinSuccess,
+            skipModal: skipModal
+            }});
     }
 
     const columns = [
