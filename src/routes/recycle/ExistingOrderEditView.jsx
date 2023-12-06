@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import { Flex, Select, Modal } from "antd";
 import Heading from "../../components/Heading";
 import Paragraph from "../../components/Paragraph";
@@ -21,6 +23,10 @@ const ExistingOrderEditView = () => {
     liquid: false,
   });
 
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const orderId = queryParams.get("orderId");
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -28,6 +34,10 @@ const ExistingOrderEditView = () => {
   };
 
   const handleOk = () => {
+    const orders = JSON.parse(localStorage.getItem("recycleOrders")) || [];
+    const updatedOrders = orders.filter(order => order.orderId.toString() !== orderId);
+    localStorage.setItem("recycleOrders", JSON.stringify(updatedOrders));
+
     setIsModalOpen(false);
     setEditOrderState(2);
   };
@@ -63,6 +73,22 @@ const ExistingOrderEditView = () => {
   const [editOrderState, setEditOrderState] = useState(0);
 
   const handleEditOrder = () => {
+    let orders = JSON.parse(localStorage.getItem("recycleOrders")) || [];
+    let orderIndex = orders.findIndex(order => order.orderId.toString() === orderId);
+
+    if(orderIndex !== -1) {
+      let updatedOrder = {
+        ...orders[orderIndex],
+        weight: inputValue,
+        type: Object.keys(checkedStates)
+                .filter(key => checkedStates[key])
+                .join(", "),
+        time: timeslot
+      };
+
+      orders[orderIndex] = updatedOrder;
+      localStorage.setItem("recycleOrders", JSON.stringify(orders));
+    }
     setEditOrderState(1);
   };
 
@@ -80,6 +106,22 @@ const ExistingOrderEditView = () => {
   const handleBackButtonOnClick = () => {
     navigate("/recycle/edit-existing-recycle-order");
   };
+
+  useEffect(() => {
+    const orders = JSON.parse(localStorage.getItem("recycleOrders")) || [];
+    const order = orders.find(o => o.orderId.toString() === orderId);
+
+    if (order) {
+      setInputValue(order.weight);
+      setCheckedStates({
+        intactSolid: order.type.includes("intactSolid"),
+        partialSolid: order.type.includes("partialSolid"),
+        liquid: order.type.includes("liquid"),
+      });
+      setTimeslot(order.time);
+    }
+  }, [orderId]);
+
   return (
     <>
       {editOrderState === 0 && (
@@ -151,7 +193,7 @@ const ExistingOrderEditView = () => {
             </div>
           </Flex>
 
-          <Flex vertical center className="mx-20 my-12">
+          <Flex vertical className="mx-20 my-12">
             <CustomButton
               type="primary"
               onClick={handleEditOrder}

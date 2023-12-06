@@ -49,9 +49,7 @@ const CreateNewRecycleOrder = () => {
 
   const [createOrder, setCreateOrder] = useState(0);
 
-  const handleCreateOrder = () => {
-    setCreateOrder(1);
-  };
+
 
   const marks = {
     0: "0 lbs",
@@ -67,6 +65,27 @@ const CreateNewRecycleOrder = () => {
   const handleBackButtonOnClick = () => {
     navigate("/recycle");
   };
+
+const handleCreateOrder = () => {
+  setCreateOrder(1);
+  const orderId = new Date().getTime().toString().slice(-6);
+
+  const newOrder = {
+    orderId: orderId,
+    name: "Recycle Order " + orderId,
+    weight: inputValue,
+    type: Object.keys(checkedStates).filter(key => checkedStates[key]).join(", "),
+    company: "RecycleHero",
+    time: selectedTimeslot
+  };
+
+  const existingOrders = JSON.parse(localStorage.getItem("recycleOrders")) || [];
+  existingOrders.push(newOrder);
+  localStorage.setItem("recycleOrders", JSON.stringify(existingOrders));
+
+  setCreateOrder(1);
+};
+
   return (
     <>
       {createOrder === 0 ? (
@@ -139,7 +158,7 @@ const CreateNewRecycleOrder = () => {
             </div>
           </Flex>
 
-          <Flex vertical center className="mx-20 my-12">
+          <Flex vertical className="mx-20 my-12">
             <CustomButton
               type="primary"
               onClick={handleCreateOrder}

@@ -56,7 +56,6 @@ export const CustomInputWithSubmit = ({
         size="large"
         type="primary"
         disabled={!inputValue}
-        onChange={""}
         onClick={() => {
           onSubmit(inputValue);
           setInputValue("");

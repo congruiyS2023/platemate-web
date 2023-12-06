@@ -52,7 +52,7 @@ function App() {
               <Route path="/recycle" element={<Recycle />} />
               <Route path="/recycle/create-new-recycle-order" element={<CreateNewRecycleOrder />} />
               <Route path="/recycle/edit-existing-recycle-order" element={<EditExistingRecycleOrder />} />
-              <Route path="/recycle/edit-existing-recycle-order/d7e5e085-30d4-4160-b1ae-936b07eff71a" element={<ExistingOrderEditView />} />
+              <Route path="/recycle/existing-order-edit" element={<ExistingOrderEditView />} />
               <Route path="/recycle/chat-with-recycle-companies" element={<ChatWithRecycleCompanies />}/>
               <Route path="/recycle/chat" element={<Chat />} />
               <Route path="/recycle/recycle-history" element={<RecycleHistory />} />

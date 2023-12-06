@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Flex } from "antd";
 import Paragraph from "../../components/Paragraph";
@@ -7,18 +7,24 @@ import HeaderNav from "../../components/HeaderNav";
 import Navbar from "../../components/Navbar";
 import RecycleOrderHistoryCard from "../../components/RecycleOrderHistoryCard";
 
-const CreateNewRecycleOrder = () => {
+const EditExistingRecycleOrder = () => {
   const navigate = useNavigate();
 
   const handleBackButtonOnClick = () => {
     navigate("/recycle");
   };
 
-  const handleExistingOrderCardClick = () => {
-    navigate(
-      "/recycle/edit-existing-recycle-order/d7e5e085-30d4-4160-b1ae-936b07eff71a"
-    );
+  const handleExistingOrderCardClick = (orderId) => {
+    navigate("/recycle/existing-order-edit?orderId=" + orderId);
   };
+
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const storedOrders =
+      JSON.parse(localStorage.getItem("recycleOrders")) || [];
+    setOrders(storedOrders);
+  }, []);
 
   return (
     <div>
@@ -34,27 +40,20 @@ const CreateNewRecycleOrder = () => {
 
       <Flex justify="center">
         <Flex vertical>
-          <Flex className="mb-4">
-            <RecycleOrderHistoryCard
-              name={"Recycle Order 1"}
-              weight={"5"}
-              type={"Partial Solid"}
-              company={"RecycleHero"}
-              time={"11/12/2023 21:00"}
-              onClickRecycleHistoryCard={handleExistingOrderCardClick}
-            />
-          </Flex>
-
-          <Flex className="mb-4">
-            <RecycleOrderHistoryCard
-              name={"Recycle Order 2"}
-              weight={"20"}
-              type={"Liquid"}
-              company={"Bay Area BioGas"}
-              time={"11/12/2023 20:00"}
-              onClickRecycleHistoryCard={handleExistingOrderCardClick}
-            />
-          </Flex>
+          {orders.map((order) => (
+            <Flex className="mb-4" key={order.orderId}>
+              <RecycleOrderHistoryCard
+                name={order.name}
+                weight={order.weight.toString()}
+                type={order.type}
+                company={order.company}
+                time={order.time}
+                onClickRecycleHistoryCard={() =>
+                  handleExistingOrderCardClick(order.orderId)
+                }
+              />
+            </Flex>
+          ))}
         </Flex>
       </Flex>
       <Navbar />
@@ -62,4 +61,4 @@ const CreateNewRecycleOrder = () => {
   );
 };
 
-export default CreateNewRecycleOrder;
+export default EditExistingRecycleOrder;
