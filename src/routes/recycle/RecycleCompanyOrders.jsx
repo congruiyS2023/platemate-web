@@ -66,6 +66,7 @@ const RecycleCompanyOrders = () => {
                   onClickChat={()=> handleChatButtonClick("Out-N-In")}
                   showButtons={true}
                   showAcceptButton={false}
+                  ignoreOrCancel={"Cancel"}
                 />
               </Flex>
               <Flex className="mt-4">
@@ -79,6 +80,7 @@ const RecycleCompanyOrders = () => {
                   onClickChat={()=> handleChatButtonClick("Happy Ox")}
                   showButtons={true}
                   showAcceptButton={false}
+                  ignoreOrCancel={"Cancel"}
                 />
               </Flex>
             </Flex>
