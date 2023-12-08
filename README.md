@@ -20,6 +20,10 @@ A dedicated section for community interactions, recently updated for better user
 ### Recycling Company Integration
 Specialized components for recycling company operations​​.
 
+## Style Guide
+
+Please refer to the [Figma Design File](https://www.figma.com/file/ORDe4AVRBV4Rim9l26Ivii/Style-Guides?type=design&node-id=0%3A1&mode=design&t=RGjcfbbPiQD4hEtt-1) or visit `/style-guide` or [Deployed Webpage](https://platemate-5f6stvuly-congruiys2023s-projects.vercel.app/style-guide) (Best viewed in mobile resolution).
+
 ## Technologies
 
 ### `JavaScript`
