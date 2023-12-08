@@ -3,7 +3,7 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Card, Flex } from "antd";
 import CustomButton from "../components/CustomButton";
 
-const RecycleCompanyOrderCard = ({ onClickAccept, onClickIgnore, onClickChat, showButtons, showAcceptButton, ...props }) => {
+const RecycleCompanyOrderCard = ({ onClickAccept, onClickIgnore, onClickChat, showButtons, showAcceptButton, ignoreOrCancel, ...props }) => {
 
   return (
     <>
@@ -39,7 +39,7 @@ const RecycleCompanyOrderCard = ({ onClickAccept, onClickIgnore, onClickChat, sh
             Accept
           </CustomButton>}
           <CustomButton className="mt-2" size="small" type="primary" danger onClick={onClickIgnore}>
-            Ignore
+            {ignoreOrCancel}
           </CustomButton>
           <CustomButton className="mt-2" size="small" onClick={onClickChat}>
             Chat

@@ -78,6 +78,7 @@ const RecycleCompanyView = () => {
                   onClickChat={()=> handleChatButtonClick("Trattoria")}
                   showButtons={true}
                   showAcceptButton={true}
+                  ignoreOrCancel={"Ignore"}
                 />
               </Flex>
               <Flex className="mt-4">
@@ -92,6 +93,7 @@ const RecycleCompanyView = () => {
                   onClickChat={()=> handleChatButtonClick("Mifen 404")}
                   showButtons={true}
                   showAcceptButton={true}
+                  ignoreOrCancel={"Ignore"}
                 />
               </Flex>
               <Flex className="mt-4">
@@ -106,6 +108,7 @@ const RecycleCompanyView = () => {
                   onClickChat={()=> handleChatButtonClick("Donkey Donuts")}
                   showButtons={true}
                   showAcceptButton={true}
+                  ignoreOrCancel={"Ignore"}
                 />
               </Flex>
             </Flex>
