@@ -20,6 +20,9 @@ const ChallengeModal = () => {
     
     const handleCancel = () => {
       setIsModalOpen(false);
+      navigate('/user-home', {state: {
+        skipModal: true,
+      }});
     };
 
     const handleJoin = () => {
@@ -29,6 +32,9 @@ const ChallengeModal = () => {
 
     const handleSkip = () => {
       setIsModalOpen(false);
+      navigate('/user-home', {state: {
+        skipModal: true,
+      }});
     };
 
     return (    

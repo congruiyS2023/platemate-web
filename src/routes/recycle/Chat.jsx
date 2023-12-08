@@ -6,6 +6,7 @@ import { CustomInputWithSubmit } from "../../components/CustomInputs";
 import HeaderNav from "../../components/HeaderNav";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
+import RecycleCompanyNavbar from "../../components/RecycleCompanyNavbar";
 
 function getMessages(name) {
   return [
@@ -72,7 +73,7 @@ export default function Chat() {
           />
         </Flex>
       </Flex>
-      <Navbar />
+      {location.state.pov === 'c2o' ? <RecycleCompanyNavbar /> : <Navbar />}
     </>
   );
 }

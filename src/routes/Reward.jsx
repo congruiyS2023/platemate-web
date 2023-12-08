@@ -12,9 +12,16 @@ import Navbar from "../components/Navbar";
 const Reward = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedCoupon, setSelectedCoupon] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
 
   const handlePhoneNumberChange = (e) => {
     setPhoneNumber(e.target.value);
+
+    if (e.target.value.length !== 10) {
+      setPhoneNumberError("Phone number must be 10 digits long.");
+    } else {
+      setPhoneNumberError(""); // Clear error message if valid
+    }
   };
 
   const handleCouponChange = (value) => {
@@ -40,14 +47,15 @@ const Reward = () => {
   return (
     <div>
       <HeaderNav
-        header="REWARD"
+        header="Send Coupon"
         showBackButton={false}
         showLogOutButton={true}
       />
       <Flex vertical>
         <Flex vertical className="px-8">
           <Heading level={1} type="success">
-            ZERO-WASTE CHALLENG SEND COUPON
+            <div>ZERO-WASTE CHALLENG </div>
+            <div>SEND COUPON </div>
           </Heading>
           <Paragraph>
             Send a coupon to customers who finish their plates and complete the
@@ -67,6 +75,9 @@ const Reward = () => {
             allowClear
             onChange={handlePhoneNumberChange}
           />
+          {phoneNumberError && (
+            <div style={{ color: "red" }}>{phoneNumberError}</div>
+          )}
           <Heading level={2}>Choose a Coupon</Heading>
           <Flex justify="space-bewteen">
             <Select

@@ -32,7 +32,7 @@ const Recycle = () => {
   return (
     <div>
       <HeaderNav
-        header="RECYCLE"
+        header="Recycle"
         showBackButton={false}
         showLogOutButton={true}
       />

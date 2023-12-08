@@ -20,6 +20,7 @@ const initialMenuItems = [
     image:
       "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg",
     size: [],
+    prices: [],
   },
 ];
 
@@ -36,6 +37,10 @@ const Menu = () => {
   const [nameValue, setNameValue] = useState();
   const [image, setImage] = useState(null);
   const [nextItemId, setNextItemId] = useState(initialMenuItems.length);
+  const [smallPriceValue, setSmallPriceValue] = useState();
+  const [mediumPriceValue, setMediumPriceValue] = useState();
+  const [largePriceValue, setLargePriceValue] = useState();
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const [selectedButtons, setSelectedButtons] = useState([]);
 
@@ -55,6 +60,26 @@ const Menu = () => {
   };
 
   const isButtonSelected = (buttonSize) => selectedButtons.includes(buttonSize);
+
+  useEffect(() => {
+    const isValid =
+      nameValue &&
+      descriptionValue &&
+      (selectedButtons.length !== 0 || priceValue) &&
+      (!isButtonSelected("Small") || smallPriceValue) &&
+      (!isButtonSelected("Medium") || mediumPriceValue) &&
+      (!isButtonSelected("Large") || largePriceValue);
+
+    setIsFormValid(isValid);
+  }, [
+    nameValue,
+    descriptionValue,
+    priceValue,
+    smallPriceValue,
+    mediumPriceValue,
+    largePriceValue,
+    selectedButtons,
+  ]);
 
   const handleButtonClick = (buttonSize) => {
     setSelectedButtons((prevSelected) => {
@@ -89,32 +114,37 @@ const Menu = () => {
     setDescriptionValue(item.description);
     setSelectedButtons(item.size);
     setDisableValue(item.isDisabled);
+    setSmallPriceValue(item.prices.small);
+    setMediumPriceValue(item.prices.medium);
+    setLargePriceValue(item.prices.large);
     setViewState("Edit Item");
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addItem();
+    let isValid = true;
+    if (isButtonSelected("Small") && !smallPriceValue) {
+      isValid = false;
+    }
+    if (isButtonSelected("Medium") && !mediumPriceValue) {
+      isValid = false;
+    }
+    if (
+      isButtonSelected("Large") &&
+      (!largePriceValue || largePriceValue == null)
+    ) {
+      isValid = false;
+    }
+    if (isValid) {
+      addItem();
+    } else {
+      console.log("Required fields are missing");
+    }
   };
 
   useEffect(() => {
     localStorage.setItem("AllItems", JSON.stringify(menuItems));
-    // localStorage.removeItem("AllItems");
   }, [menuItems]);
-
-  useEffect(() => {}, [nameValue]);
-
-  useEffect(() => {}, [priceValue]);
-
-  useEffect(() => {}, [descriptionValue]);
-
-  useEffect(() => {}, [image]);
-
-  useEffect(() => {}, [selectedButtons]);
-
-  useEffect(() => {}, [disableValue]);
-
-  useEffect(() => {}, [nextItemId]);
 
   const resetValues = () => {
     setIdValue();
@@ -124,9 +154,18 @@ const Menu = () => {
     setDescriptionValue();
     setDisableValue(false);
     setSelectedButtons([]);
+    setSmallPriceValue();
+    setMediumPriceValue();
+    setLargePriceValue();
   };
 
   const saveItem = () => {
+    const prices = {
+      small: smallPriceValue,
+      medium: mediumPriceValue,
+      large: largePriceValue,
+    };
+
     const updatedMenuItems = menuItems.map((item) => {
       if (item.id === idValue) {
         return {
@@ -138,6 +177,7 @@ const Menu = () => {
           price: priceValue,
           image: image,
           size: selectedButtons,
+          prices: prices,
         };
       }
       return item;
@@ -149,6 +189,12 @@ const Menu = () => {
   };
 
   const addItem = () => {
+    const prices = {
+      small: smallPriceValue,
+      medium: mediumPriceValue,
+      large: largePriceValue,
+    };
+
     const newItem = {
       id: nextItemId,
       isDisabled: false,
@@ -157,10 +203,11 @@ const Menu = () => {
       price: priceValue,
       image: image,
       size: selectedButtons,
+      prices: prices,
     };
     setMenuItems([...menuItems, newItem]);
     localStorage.setItem("AllItems", JSON.stringify(menuItems));
-    setNextItemId((prevId) => prevId + 1);
+    setNextItemId(nextItemId + 1);
     returnToMenu();
   };
 
@@ -225,7 +272,7 @@ const Menu = () => {
           </Flex>
           <Flex justify="center" align="center">
             <p className="text-3xl text-black font-extrabold">
-              We have Modify Your Dish
+              We have Modified Your Dish
             </p>
           </Flex>
           <Flex justify="center" align="center">
@@ -290,14 +337,57 @@ const Menu = () => {
             <Heading level={2}>Price</Heading>
           </Flex>
           <Flex vertical justify="flex-start" gap="middle" className="px-8">
-            <InputNumber
-              className="w-80"
-              placeholder="Item price"
-              addonBefore="$"
-              value={priceValue}
-              onChange={setPriceValue}
-              required
-            />
+            <div>
+              {selectedButtons.length === 0 && (
+                <InputNumber
+                  className="w-80"
+                  placeholder="Item price"
+                  addonBefore="$"
+                  value={priceValue}
+                  onChange={setPriceValue}
+                  required
+                />
+              )}
+              {isButtonSelected("Small") && (
+                <div>
+                  <span className="font-paragraph font-bold">Size Small</span>
+                  <InputNumber
+                    className="w-80 mt-2 mb-2"
+                    placeholder="Item price"
+                    addonBefore="$"
+                    value={smallPriceValue}
+                    onChange={setSmallPriceValue}
+                    required
+                  />
+                </div>
+              )}
+              {isButtonSelected("Medium") && (
+                <div>
+                  <span className="font-paragraph font-bold">Size Medium</span>
+                  <InputNumber
+                    className="w-80 mt-2 mb-2"
+                    placeholder="Item price"
+                    addonBefore="$"
+                    value={mediumPriceValue}
+                    onChange={setMediumPriceValue}
+                    required
+                  />
+                </div>
+              )}
+              {isButtonSelected("Large") && (
+                <div>
+                  <span className="font-paragraph font-bold">Size Large</span>
+                  <InputNumber
+                    className="w-80 mt-2 mb-2"
+                    placeholder="Item price"
+                    addonBefore="$"
+                    value={largePriceValue}
+                    onChange={setLargePriceValue}
+                    required
+                  />
+                </div>
+              )}
+            </div>
           </Flex>
           <Flex justify="flex-start" className="px-8">
             <Heading level={2}>Image</Heading>
@@ -381,6 +471,7 @@ const Menu = () => {
                 className="text-white border-primary w-32 text-paragraph bg-black"
                 type={"primary"}
                 onClick={saveItem}
+                disabled={!isFormValid}
               >
                 Save
               </CustomButton>
@@ -436,14 +527,59 @@ const Menu = () => {
               <Heading level={2}>Price</Heading>
             </Flex>
             <Flex vertical justify="flex-start" gap="middle" className="px-8">
-              <InputNumber
-                className="w-80"
-                placeholder="Item price"
-                addonBefore="$"
-                value={priceValue}
-                onChange={setPriceValue}
-                required
-              />
+              <div>
+                {selectedButtons.length === 0 && (
+                  <InputNumber
+                    className="w-80"
+                    placeholder="Item price"
+                    addonBefore="$"
+                    value={priceValue}
+                    onChange={setPriceValue}
+                    required
+                  />
+                )}
+                {isButtonSelected("Small") && (
+                  <div>
+                    <span className="font-paragraph font-bold">Size Small</span>
+                    <InputNumber
+                      className="w-80 mt-2 mb-2"
+                      placeholder="Item price"
+                      addonBefore="$"
+                      value={smallPriceValue}
+                      onChange={setSmallPriceValue}
+                      required
+                    />
+                  </div>
+                )}
+                {isButtonSelected("Medium") && (
+                  <div>
+                    <span className="font-paragraph font-bold">
+                      Size Medium
+                    </span>
+                    <InputNumber
+                      className="w-80 mt-2 mb-2"
+                      placeholder="Item price"
+                      addonBefore="$"
+                      value={mediumPriceValue}
+                      onChange={setMediumPriceValue}
+                      required
+                    />
+                  </div>
+                )}
+                {isButtonSelected("Large") && (
+                  <div>
+                    <span className="font-paragraph font-bold">Size Large</span>
+                    <InputNumber
+                      className="w-80 mt-2 mb-2"
+                      placeholder="Item price"
+                      addonBefore="$"
+                      value={largePriceValue}
+                      onChange={setLargePriceValue}
+                      required
+                    />
+                  </div>
+                )}
+              </div>
             </Flex>
             <Flex justify="flex-start" className="px-8">
               <Heading level={2}>Image</Heading>
@@ -505,6 +641,7 @@ const Menu = () => {
                   className="text-white border-primary w-32 text-paragraph"
                   type={"primary"}
                   htmlType="submit"
+                  disabled={!isFormValid}
                 >
                   Add Item
                 </CustomButton>
@@ -553,7 +690,9 @@ const Menu = () => {
                         item.isDisabled ? "border-dotted" : "border-solid"
                       } border-2 border-primary w-40`}
                       name={item.name}
-                      price={"$" + item.price}
+                      price={item.price}
+                      size={item.size}
+                      prices={item.prices}
                       image={item.image}
                     />
                   </div>

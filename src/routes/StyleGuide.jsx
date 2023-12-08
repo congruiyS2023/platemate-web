@@ -52,7 +52,7 @@ const StyleGuide = () => {
 
   return (
     <>
-      <div className="pt-4">
+      <div className="pt-4 text-center">
         <Heading level={1}>PlateMate Style Guide</Heading>
       </div>
       <Divider />
@@ -186,7 +186,7 @@ const StyleGuide = () => {
         <Flex className="mb-4">
           <MenuItemPreviewCard
             name={"HASS OMELETE"}
-            price={"$22"}
+            price={"22"}
             image={
               "https://www.foodnetwork.com/content/dam/images/food/fullset/2021/07/14/0/FNK_Hash-Brown-Omelet_H1_s4x3.jpg"
             }
