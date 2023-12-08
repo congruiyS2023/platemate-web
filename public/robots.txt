@@ -1,3 +1,3 @@
 # https://www.robotstxt.org/robotstxt.html
-UserHome-agent: *
+Home-agent: *
 Disallow:

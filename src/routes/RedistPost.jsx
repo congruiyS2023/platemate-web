@@ -88,6 +88,11 @@ const RedistPost = () => {
         return storedPosts ? JSON.parse(storedPosts) : [];
     });
 
+    const disabledDate = (current) => {
+        // Can not select days before today beyond 1 month starting from today
+        return current && (current.isBefore(dayjs().startOf('day')) || current.isAfter(dayjs().add(1, 'month')));
+    }
+
     const findInitialPost = (posts) => {
         const post = posts.find((post) => post.id === params.id);
         if (post) {
@@ -222,7 +227,7 @@ const RedistPost = () => {
                         <Form.Item label={<Heading level={2}>Food Name</Heading>} name="name" rules={[{ required: true }]}>
                             <CustomInput placeholder="Name of the food" />
                         </Form.Item>
-                        <Form.Item label={<Heading level={2}>Status</Heading>} name="status" rules={[{ required: true }]}>
+                        <Form.Item label={<Heading level={2}>Food Status</Heading>} name="status" rules={[{ required: true }]}>
                             <Select
                                 className="font-paragraph text-left"
                                 size="large"
@@ -230,7 +235,7 @@ const RedistPost = () => {
                                 optionRender={(item) => (<span className="text-lg">{item.label}</span>)}
                                 options={[
                                     { value: "raw", label: "Raw" },
-                                    { value: "untouched", label: "Untouched" },
+                                    { value: "intact", label: "Intact" },
                                     { value: "touched", label: "Touched" },
                                 ]}
                             />
@@ -272,7 +277,7 @@ const RedistPost = () => {
                             </Col>
                             <Col span={12} >
                                 <Form.Item noStyle={true} name="expirationDate" rules={[{ required: true }]}>
-                                    <DatePicker className="w-full" size="large" />
+                                    <DatePicker className="w-full" size="large" disabledDate={disabledDate} />
                                 </Form.Item>
                             </Col>
                         </Row>

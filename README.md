@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# PlateMate Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Text Logo](https://github.com/congruiyS2023/platemate-web/blob/main/PlateMateTextLogo.png)
+![Icon Logo](https://github.com/congruiyS2023/platemate-web/blob/main/PlateMateIconLogo.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+Welcome to the PlateMate Web Application, a dynamic web platform designed to streamline and enhance user interactions with the food and recycling industries. This repository contains the source code and resources for the PlateMate Web App.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Menu and Order Pages 
+Enhanced user interfaces for intuitive navigation and ordering​​.
 
-### `npm test`
+### Community Page
+A dedicated section for community interactions, recently updated for better user experience​​.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Recycling Company Integration
+Specialized components for recycling company operations​​.
 
-### `npm run build`
+## Technologies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `JavaScript`
+Main programming language, constituting 97.9% of the codebase​​.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `HTML` and `CSS`
+Used for structuring and styling the web application, accounting for 1.4% and 0.7% of the project respectively​​.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `React.js`
+Leveraging React for building user interfaces.
 
-### `npm run eject`
+### `Tailwind CSS` and `Ant Design (antd)`
+Utilized for styling and UI components​​.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
+Clone the repo and install dependencies using `npm install`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Running the App
+Use `npm start` to run the app in development mode.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Limitation
 
-## Learn More
+MVP for PlateMate has the following limitations:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### For all features
+- Please use 390x844 resolution (or any other phone screen resolution) (with a desktop browser) for best experience
+- There is no database storage 
+- There is no access control 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+*When logged in the app as a restaurant owner(`/login/restaurant`)*
+### Login
+- Any combination of username/password would work
 
-### Code Splitting
+### Community
+- For now, PlateMate is not able to upload the picture of the food when creating/updating the post. Instead, an icon is used as a placeholder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Recycle
+- For now, you can only chat to certain predefined companies, and no response should be expected.
 
-### Analyzing the Bundle Size
+### Reward
+- For now, the receiver’s phone number is hard-coded. Any number you input would be interpreted as the same preset value.
+- For now, PlateMate will not remember what coupon you create.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+*When logged in the app as a restaurant customer(`/login/customer`)*
+### Order Summary
+- For now, coupons can only be applied once; otherwise, price is not updated correctly. 
+- For now, available coupons are hard-coded.
 
-### Making a Progressive Web App
+### Misc
+- For now, PlateMate only supports ordering in a predefined restaurant (Trattoria®).
+- For now, PlateMate may forget that you’ve already joined the reward challenge. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+*When logged in the app as a recycle company(`/login/company`)*
+### Login
+- Any combination of username/password would work
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Orders
+- For now, accepting or ignoring orders will have no effect on the display of the order list
+- For now, you can only chat to certain predefined restaurants, and no response should be expected.
