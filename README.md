@@ -1,6 +1,7 @@
 # PlateMate Web Application
 
 ![Text Logo](https://github.com/congruiyS2023/platemate-web/blob/master/PlateMateTextLogo.png)
+
 ![Icon Logo](https://github.com/congruiyS2023/platemate-web/blob/master/PlateMateIconLogo.png)
 
 
