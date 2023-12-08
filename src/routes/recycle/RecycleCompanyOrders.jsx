@@ -96,7 +96,7 @@ const RecycleCompanyOrders = () => {
             onOk={handleIgnoreOk}
             onCancel={handleIgnoreCancel}
             cancelText={<ButtonText color="black">Back</ButtonText>}
-            okText={<ButtonText color="black">Confirm Ignore</ButtonText>}
+            okText={<ButtonText color="black">Confirm Cancel</ButtonText>}
             okType="danger"
           >
             <Paragraph>Are you sure you want to ignore this order?</Paragraph>
